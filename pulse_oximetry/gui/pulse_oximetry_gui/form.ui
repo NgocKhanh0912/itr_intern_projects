@@ -1,0 +1,571 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>User_UI</class>
+ <widget class="QMainWindow" name="User_UI">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1534</width>
+    <height>845</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>MainWindow</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <widget class="QGroupBox" name="Heart_rate_graph">
+    <property name="geometry">
+     <rect>
+      <x>500</x>
+      <y>20</y>
+      <width>1001</width>
+      <height>451</height>
+     </rect>
+    </property>
+    <property name="title">
+     <string>Heart rate</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="btn_switch_to_dev_ui">
+    <property name="geometry">
+     <rect>
+      <x>690</x>
+      <y>730</y>
+      <width>141</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Switch to Dev UI</string>
+    </property>
+   </widget>
+   <widget class="QGroupBox" name="Notification">
+    <property name="geometry">
+     <rect>
+      <x>30</x>
+      <y>610</y>
+      <width>451</width>
+      <height>111</height>
+     </rect>
+    </property>
+    <property name="title">
+     <string>Threshold Notification</string>
+    </property>
+    <widget class="QLabel" name="lbl_thre_noti">
+     <property name="geometry">
+      <rect>
+       <x>20</x>
+       <y>50</y>
+       <width>121</width>
+       <height>20</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Threshold status:</string>
+     </property>
+    </widget>
+    <widget class="QLineEdit" name="line_thre_noti">
+     <property name="geometry">
+      <rect>
+       <x>150</x>
+       <y>50</y>
+       <width>281</width>
+       <height>26</height>
+      </rect>
+     </property>
+    </widget>
+   </widget>
+   <widget class="QGroupBox" name="Connectivity">
+    <property name="geometry">
+     <rect>
+      <x>30</x>
+      <y>20</y>
+      <width>451</width>
+      <height>181</height>
+     </rect>
+    </property>
+    <property name="title">
+     <string>Connectivity</string>
+    </property>
+    <widget class="QLabel" name="lbl_com">
+     <property name="geometry">
+      <rect>
+       <x>60</x>
+       <y>30</y>
+       <width>81</width>
+       <height>20</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>COM Port:</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="lbl_baudrate">
+     <property name="geometry">
+      <rect>
+       <x>60</x>
+       <y>80</y>
+       <width>71</width>
+       <height>20</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Baudrate:</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="btn_connect_com">
+     <property name="geometry">
+      <rect>
+       <x>110</x>
+       <y>130</y>
+       <width>93</width>
+       <height>29</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Connect</string>
+     </property>
+    </widget>
+    <widget class="QComboBox" name="cbb_com">
+     <property name="geometry">
+      <rect>
+       <x>220</x>
+       <y>30</y>
+       <width>111</width>
+       <height>26</height>
+      </rect>
+     </property>
+     <item>
+      <property name="text">
+       <string>COM0</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>COM1</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>COM2</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>COM3</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>COM4</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>COM5</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>COM6</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>COM7</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>COM8</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>COM9</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>COM10</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>COM11</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>COM12</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>COM13</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>COM14</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>COM15</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>COM16</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>COM17</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>COM18</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>COM19</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>COM20</string>
+      </property>
+     </item>
+    </widget>
+    <widget class="QComboBox" name="cbb_baudrate">
+     <property name="geometry">
+      <rect>
+       <x>220</x>
+       <y>80</y>
+       <width>111</width>
+       <height>26</height>
+      </rect>
+     </property>
+     <item>
+      <property name="text">
+       <string>1200</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>2400</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>4800</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>9600</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>14400</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>19200</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>38400</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>57600</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>115200</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>230400</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>460800</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>921600</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>1000000</string>
+      </property>
+     </item>
+    </widget>
+    <widget class="QPushButton" name="btn_check_com">
+     <property name="geometry">
+      <rect>
+       <x>250</x>
+       <y>130</y>
+       <width>93</width>
+       <height>29</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Check COM</string>
+     </property>
+    </widget>
+   </widget>
+   <widget class="QGroupBox" name="Threshold">
+    <property name="geometry">
+     <rect>
+      <x>30</x>
+      <y>210</y>
+      <width>451</width>
+      <height>221</height>
+     </rect>
+    </property>
+    <property name="title">
+     <string>Set Threshold</string>
+    </property>
+    <widget class="QLabel" name="lbl_low_level">
+     <property name="geometry">
+      <rect>
+       <x>30</x>
+       <y>50</y>
+       <width>151</width>
+       <height>20</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Heart rate low level:</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="lbl_high_level">
+     <property name="geometry">
+      <rect>
+       <x>30</x>
+       <y>120</y>
+       <width>161</width>
+       <height>20</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Heart rate high level:</string>
+     </property>
+    </widget>
+    <widget class="QLineEdit" name="line_low_level">
+     <property name="geometry">
+      <rect>
+       <x>220</x>
+       <y>40</y>
+       <width>113</width>
+       <height>41</height>
+      </rect>
+     </property>
+    </widget>
+    <widget class="QLineEdit" name="line_high_level">
+     <property name="geometry">
+      <rect>
+       <x>220</x>
+       <y>110</y>
+       <width>113</width>
+       <height>41</height>
+      </rect>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="btn_set_threshold">
+     <property name="geometry">
+      <rect>
+       <x>170</x>
+       <y>170</y>
+       <width>111</width>
+       <height>29</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Set threshold</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="lbl_bpm_1">
+     <property name="geometry">
+      <rect>
+       <x>350</x>
+       <y>50</y>
+       <width>71</width>
+       <height>20</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>BPM</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="lbl_bpm_2">
+     <property name="geometry">
+      <rect>
+       <x>350</x>
+       <y>120</y>
+       <width>71</width>
+       <height>20</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>BPM</string>
+     </property>
+    </widget>
+   </widget>
+   <widget class="QGroupBox" name="Record">
+    <property name="geometry">
+     <rect>
+      <x>500</x>
+      <y>480</y>
+      <width>1001</width>
+      <height>241</height>
+     </rect>
+    </property>
+    <property name="title">
+     <string>Heart rate record</string>
+    </property>
+    <widget class="QTextEdit" name="txt_record">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>30</y>
+       <width>841</width>
+       <height>201</height>
+      </rect>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="btn_read_record">
+     <property name="geometry">
+      <rect>
+       <x>870</x>
+       <y>60</y>
+       <width>111</width>
+       <height>29</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Read record</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="btn_clear_record">
+     <property name="geometry">
+      <rect>
+       <x>870</x>
+       <y>120</y>
+       <width>111</width>
+       <height>29</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Clear record</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="btn_clear_graph">
+     <property name="geometry">
+      <rect>
+       <x>870</x>
+       <y>180</y>
+       <width>111</width>
+       <height>29</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Clear graph</string>
+     </property>
+    </widget>
+   </widget>
+   <widget class="QGroupBox" name="Interval">
+    <property name="geometry">
+     <rect>
+      <x>30</x>
+      <y>440</y>
+      <width>451</width>
+      <height>161</height>
+     </rect>
+    </property>
+    <property name="title">
+     <string>Set Interval</string>
+    </property>
+    <widget class="QLabel" name="lbl_interval">
+     <property name="geometry">
+      <rect>
+       <x>70</x>
+       <y>50</y>
+       <width>81</width>
+       <height>20</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Interval:</string>
+     </property>
+    </widget>
+    <widget class="QLineEdit" name="line_set_interval">
+     <property name="geometry">
+      <rect>
+       <x>220</x>
+       <y>40</y>
+       <width>113</width>
+       <height>41</height>
+      </rect>
+     </property>
+    </widget>
+    <widget class="QLabel" name="lbl_s">
+     <property name="geometry">
+      <rect>
+       <x>350</x>
+       <y>50</y>
+       <width>31</width>
+       <height>20</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>s</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="btn_set_interval">
+     <property name="geometry">
+      <rect>
+       <x>170</x>
+       <y>110</y>
+       <width>111</width>
+       <height>29</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Set interval</string>
+     </property>
+    </widget>
+   </widget>
+  </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>1534</width>
+     <height>26</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
