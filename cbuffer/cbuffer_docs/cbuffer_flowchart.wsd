@@ -1,0 +1,174 @@
+@startuml
+
+/'
+'cb_init
+start
+if (check buffer pointer is NULL?) then (yes)
+  :error handler;
+end
+else (no)
+endif
+if (initialization data pointer is NULL?) then (yes)
+  :error handler;
+end
+else (no)
+endif
+if ((size < 0) or (size > CB_MAX_SIZE)) then (yes)
+  :error handler;
+end
+else (no)
+endif
+:assign parameters\n and initilize the reader and writer;
+:set the active flag;
+
+end
+'/
+
+/'
+'cb_clear
+start
+if (cb pointer is NULL?) then (yes)
+  :error handler;
+end
+else (no)
+endif
+if (buffer is initialized?) then (no)
+  :error handler;
+end
+else (yes)
+endif
+:reset reader, writer and overflow;
+end
+'/
+/'
+'cb_read
+start
+if (check cb pointer is NULL?) then (yes)
+  :error_handler;
+end
+else (no)
+endif
+if (check rx buffer is NULL?) then (yes)
+  :error handler;
+end
+else (no)
+endif
+if (check buffer is initialized?) then (no)
+  :error handler;
+end
+else (no)
+endif
+if (check byte data is 0?) then (yes)
+  :error handler;
+end
+else (no)
+endif
+if (reader = write, buffer is empty?) then (yes)
+  :error handler;
+end
+else (no)
+endif
+:initilize count_bytes = 0, i = 0;
+while (i < byte?)
+  :copy data from cb position "reader" to buf position "i";
+  :update reader with modulo;
+  :increase count_bytes by 1;
+  if (reader = writer?) then (yes)
+    :return count_bytes;
+    end
+  else (no)
+    :increase i by 1;
+  endif
+endwhile
+  :return count_bytes;
+  end
+'/
+/'
+start
+if (check cb pointer is NULL?) then (yes)
+  :error_handler;
+end
+else (no)
+endif
+if (check tx buffer is NULL?) then (yes)
+  :error handler;
+end
+else (no)
+endif
+if (check buffer is initialized?) then (no)
+  :error handler;
+end
+else (no)
+endif
+:intialize count_bytes = 0, free_space = 0;
+:get free space in buffer;
+if (free_space < byte) then (yes)
+  : overflow = byte - free_space;
+else (no)
+endif
+while (byte > 0)
+  :copy data from tx buffer to cbuffer\nbegin at write position;
+  :increase pointer data by 1;
+  :increase writer by 1;
+  :increase count_bytes by 1;
+
+  if (writer = cb) then (yes)
+    :writer = 0;
+  else (no)
+  endif
+endwhile
+
+:return count_bytes;
+end
+'/
+/'
+'cb_data_count
+start
+if (check cb pointer is NULL?) then (yes)
+  :error_handler;
+end
+else (no)
+endif
+if (check buffer is initialized?) then (no)
+  :error handler;
+end
+else (no)
+endif
+if (writer >= reader) then (yes)
+  :return writer - reader;
+else (no)
+  :return size + writer - reader;
+  endif
+
+end
+'/
+
+'cb_space_count
+start
+if (check cb pointer is NULL?) then (yes)
+  :error_handler;
+end
+else (no)
+endif
+if (check buffer is initialized?) then (no)
+  :error handler;
+end
+else (no)
+endif
+if (writer = reader?) then (yes) 
+  :return buffer size -1;
+  end
+else (no)
+endif
+if (writer > reader) then (yes)
+  :return buffer - 1 - (writer - reader);
+  end
+else (no)
+endif
+if (reader > writer?) then (yes)
+  :return reader - writer - 1;
+else (no)
+endif
+end
+
+@enduml
