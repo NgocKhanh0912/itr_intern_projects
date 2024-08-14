@@ -1,0 +1,53 @@
+@startuml FSM-Exercise-1_MOORE
+
+title "Control LEDs ON/OFF Moore Finite State Machine"
+
+[*] --> IDLE
+
+IDLE --> IDLE: Input = 0
+IDLE --> STATE_1: Input = 1
+IDLE --> STATE_2: Input = 2
+IDLE --> STATE_3: Input = 3
+STATE_1 --> LED_1
+LED_1 --> IDLE: Input = 0
+LED_1 --> LED_2: Input = 1
+LED_1 --> STATE_2: Input = 2
+LED_1 --> STATE_3: Input = 3
+LED_2 --> IDLE: Input = 0
+LED_2 --> LED_3: Input = 1
+LED_2 --> STATE_2: Input = 2
+LED_2 --> STATE_3: Input = 3
+LED_3 --> IDLE: Input = 0
+LED_3 --> LED_1: Input = 1
+LED_3 --> STATE_2: Input = 2
+LED_3 --> STATE_3: Input = 3
+STATE_2 --> LED_12
+LED_12 --> IDLE: Input = 0
+LED_12 --> STATE_1: Input = 1
+LED_12 --> LED_23: Input = 2
+LED_12 --> STATE_3: Input = 3
+LED_23 --> IDLE: Input = 0
+LED_23 --> STATE_1: Input = 1
+LED_23 --> LED_31: Input = 2
+LED_23 --> STATE_3: Input = 3
+LED_31 --> IDLE: Input = 0
+LED_31 --> STATE_1: Input = 1
+LED_31 --> LED_12: Input = 2
+LED_31 --> STATE_3: Input = 3
+STATE_3 --> IDLE: Input = 0
+STATE_3 --> STATE_1: Input = 1
+STATE_3 --> STATE_2: Input = 2
+STATE_3 --> STATE_3: Input = 3
+
+IDLE : All LEDs are OFF
+STATE_1 : Only 1 LED is ON
+STATE_2 : 2 LED are ON
+STATE_3 : All LEDs are ON
+LED_1: LED_1 is ON
+LED_2: LED_2 is ON
+LED_3: LED_3 is ON
+LED_12: LED_1 and LED_2 is ON
+LED_23: LED_2 and LED_3 is ON
+LED_31: LED_3 and LED_1 is ON
+
+@enduml

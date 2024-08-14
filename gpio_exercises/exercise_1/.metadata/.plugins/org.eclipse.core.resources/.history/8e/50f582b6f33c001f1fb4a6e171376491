@@ -1,0 +1,93 @@
+/**
+ * @file       led.h
+ * @copyright
+ * @license
+ * @version    1.0.0
+ * @date       05/07/2024
+ * @author     Khanh Nguyen Ngoc
+ *             Giang Phan Truong
+ *             Viet Hoang Xuan
+ *
+ * @brief      Driver for LED
+ *
+ * @note       None
+ * @example    None
+ */
+
+/* Define to prevent recursive inclusion ------------------------------ */
+#ifndef INC_DRV_LED_H_
+#define INC_DRV_LED_H_
+
+/* Includes ----------------------------------------------------------- */
+#include "main.h"
+#include <stdint.h>
+#include <stdbool.h>
+#include <stdlib.h>
+
+/* Public defines ----------------------------------------------------- */
+#define NUM_OF_LEDS 3
+#define LED_PORT GPIOB
+#define LED1_PIN GPIO_PIN_3
+#define LED2_PIN GPIO_PIN_5
+#define LED3_PIN GPIO_PIN_7
+
+/* Public enumerate/structure ----------------------------------------- */
+typedef enum
+{
+  LED_INIT_STATUS_ERROR = -1,
+  LED_INIT_STATUS_OK = 0,
+} led_init_status_t;
+
+typedef enum
+{
+  LED1_PB3_RED = 1,
+  LED2_PB5_GREEN = 2,
+  LED3_PB7_BLUE = 3,
+} led_num_t;
+
+typedef enum
+{
+  LED_OFF = 0,
+  LED_ON = 1,
+} led_set_status_t;
+
+/* Public macros ------------------------------------------------------ */
+/* Public variables --------------------------------------------------- */
+
+/* Public function prototypes ----------------------------------------- */
+/**
+ * @brief     Initialize for driver
+ *
+ * @param[in]   None
+ *
+ * @attention   Should call this function first before using other function
+ *
+ * @return    OK    successed
+ * @return    ERROR failed
+ */
+bool led_init();
+
+/**
+ * @brief     Choose which LED is ON/OFF
+ *
+ * @param[in]   led_num: choose which LED you want to control ON/OFF
+ *              led_set_status: choose LED ON or OFF
+ *
+ * @attention   data type of led_num is led_num_t, data type of led_set_status is led_set_status_t
+ *
+ * @return    None
+ */
+void led_set(led_num_t led_num, led_set_status_t led_set_status);
+
+/**
+ * @brief     delay ms millisecond
+ *
+ * @param[in]   ms: number of millisecond you want to delay
+ *
+ * @attention   This delay command is delay blocking, it will delay the whole system
+ *
+ * @return    None
+ */
+void delay(uint32_t ms);
+
+#endif /* INC_DRV_LED_H_ */

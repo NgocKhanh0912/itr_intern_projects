@@ -1,0 +1,20 @@
+@startuml Firmware-Architecture_Exercise-1
+skinparam {
+  BackgroundColor white
+  BorderColor black
+}
+
+rectangle "FIRMWARE ARCHITECTURE" {
+  rectangle "Application" as app #LightGreen
+  rectangle "System Service" as sys #LightGreen
+  rectangle "Device Drivers" as drv #LightSkyBlue
+  rectangle "Hardware Abstraction Layer (HAL)" as hal #PeachPuff
+  rectangle "Hardware" as hw #MistyRose
+}
+
+app -down-> sys
+sys -down-> drv
+drv -down-> hal
+hal -down-> hw
+
+@enduml

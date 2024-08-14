@@ -1,0 +1,34 @@
+!SESSION 2024-07-08 12:33:21.806 -----------------------------------------------
+eclipse.buildId=Version 1.16.0
+java.version=17.0.11
+java.vendor=Eclipse Adoptium
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_US
+Command-line arguments:  -os win32 -ws win32 -arch x86_64
+
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 4 4 2024-07-08 12:34:17.512
+!MESSAGE CubeMX plugin appears to be active, Log4j initialization might be too late.
+
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 1 1 2024-07-08 12:34:17.530
+!MESSAGE Log4j2 initialized with config file C:\Users\XUANVIET\Desktop\Intern\06-2024-itr-intern-group-1\gpio_exercises\exercise_1\exercise_1_firmware\.metadata\.log4j2.xml
+
+!ENTRY com.st.stm32cube.ide.mcu.ide 1 1 2024-07-08 12:34:24.977
+!MESSAGE Started RMI Server, listening on port 41337
+!SESSION 2024-07-08 12:48:54.627 -----------------------------------------------
+eclipse.buildId=Version 1.16.0
+java.version=17.0.11
+java.vendor=Eclipse Adoptium
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_US
+Framework arguments:  C:\Users\XUANVIET\Desktop\Intern\06-2024-itr-intern-group-1\gpio_exercises\exercise_1\exercise_1_firmware\.project
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 C:\Users\XUANVIET\Desktop\Intern\06-2024-itr-intern-group-1\gpio_exercises\exercise_1\exercise_1_firmware\.project
+
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 4 4 2024-07-08 12:49:29.660
+!MESSAGE CubeMX plugin appears to be active, Log4j initialization might be too late.
+
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 1 1 2024-07-08 12:49:29.663
+!MESSAGE Log4j2 initialized with config file C:\Users\XUANVIET\Desktop\Intern\06-2024-itr-intern-group-1\gpio_exercises\exercise_1\exercise_1_firmware\.metadata\.log4j2.xml
+
+!ENTRY com.st.stm32cube.ide.mcu.ide 1 1 2024-07-08 12:49:36.695
+!MESSAGE Started RMI Server, listening on port 41337
+
+!ENTRY org.eclipse.core.jobs 2 2 2024-07-08 12:49:50.784
+!MESSAGE Job found still running after platform shutdown.  Jobs should be canceled by the plugin that scheduled them during shutdown: org.eclipse.ui.internal.Workbench$39

@@ -1,0 +1,76 @@
+/**
+ * @file       sys_manage.c
+ * @copyright
+ * @license
+ * @version    1.0.0
+ * @date       06/07/2024
+ * @author     Khanh Nguyen Ngoc
+ *             Giang Phan Truong
+ *             Viet Hoang Xuan
+ *
+ * @brief      Manage the states and call the control LEDs function from sys_led
+ *
+ * @note       None
+ * @example    None
+ */
+
+/* Includes ----------------------------------------------------------- */
+#include "system/sys_manage.h"
+
+/* Private defines ---------------------------------------------------- */
+/* Private enumerate/structure ---------------------------------------- */
+/* Private macros ----------------------------------------------------- */
+/* Public variables --------------------------------------------------- */
+/* Private variables -------------------------------------------------- */
+/* Private function prototypes ---------------------------------------- */
+
+/* Function definitions ----------------------------------------------- */
+void sys_manage_led_fsm(uint8_t input)
+{
+  static state_t current_state = STATE_IDLE;
+  switch(current_state)
+  {
+    case(STATE_IDLE):
+        if (input == 1)
+          {
+            current_state = STATE_1;
+          }
+        break;
+    case(STATE_1):
+        if (input == 2)
+          {
+            current_state = STATE_2;
+          }
+        break;
+    case(STATE_2):
+        if (input == 3)
+          {
+            current_state = STATE_3;
+          }
+        break;
+    case(STATE_3):
+        if (input == 0)
+          {
+            current_state = STATE_IDLE;
+          }
+        break;
+  }
+
+  switch(current_state)
+    {
+      case(STATE_IDLE):
+          set_led_for_state_idle();
+          break;
+      case(STATE_1):
+          set_led_for_state_1();
+          break;
+      case(STATE_2):
+          set_led_for_state_2();
+          break;
+      case(STATE_3):
+          set_led_for_state_3();
+          break;
+    }
+}
+
+/* End of file -------------------------------------------------------- */

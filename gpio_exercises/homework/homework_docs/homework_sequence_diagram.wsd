@@ -1,0 +1,24 @@
+@startuml
+
+actor user #Black
+participant button
+participant led
+participant HAL
+participant drv_button
+participant drv_led
+participant sys_led
+participant sys_button
+participant sys_manage
+
+user -> button : interract
+button -> HAL : input level
+HAL -> drv_button : state of input
+drv_button -> sys_button : button state
+sys_button -> sys_manage: button event
+sys_manage -> sys_led : led effects
+sys_led -> drv_led : control leds
+drv_led -> HAL : state of outputs
+HAL -> led : state of outputs
+led -> user : display
+
+@enduml

@@ -1,0 +1,15 @@
+@startuml
+
+start
+:initialize system;
+:configure GPIO for button;
+:configure GPIO for LEDs;
+
+while (1)
+  :button_handler;
+  :led_handler;
+endwhile
+
+end
+
+@enduml

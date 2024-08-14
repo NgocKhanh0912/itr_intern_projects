@@ -1,0 +1,59 @@
+/**
+ * @file       led.c
+ * @copyright
+ * @license
+ * @version    1.0.0
+ * @date       05/07/2024
+ * @author     Khanh Nguyen Ngoc
+ *             Giang Phan Truong
+ *             Viet Hoang Xuan
+ *
+ * @brief      Driver for LED
+ *
+ * @note       None
+ * @example    None
+ */
+
+/* Includes ----------------------------------------------------------- */
+#include "drv/led.h"
+
+/* Private defines ---------------------------------------------------- */
+/* Private enumerate/structure ---------------------------------------- */
+/* Private macros ----------------------------------------------------- */
+/* Public variables --------------------------------------------------- */
+uint8_t led_pin[] = {GPIO_PIN_3, GPIO_PIN_5, GPIO_PIN_7};
+/* Private variables -------------------------------------------------- */
+/* Private function prototypes ---------------------------------------- */
+
+/* Function definitions ----------------------------------------------- */
+bool led_init()
+{
+  for (uint8_t i = 0; i < NUM_OF_LEDS; i++)
+  {
+	  HAL_GPIO_WritePin(LED_PORT, *(led_pin++), LED_OFF);
+  }
+  return LED_INIT_STATUS_OK;
+}
+
+void led_set(led_num_t led_num, led_set_status_t led_set_status)
+{
+  if (led_num == LED1_PB3_RED)
+    {
+      HAL_GPIO_WritePin(LED_PORT, LED1_PIN, led_set_status);
+    }
+  else if (led_num == LED2_PB5_GREEN)
+    {
+      HAL_GPIO_WritePin(LED_PORT, LED2_PIN, led_set_status);
+    }
+  else if (led_num == LED3_PB7_BLUE)
+    {
+      HAL_GPIO_WritePin(LED_PORT, LED3_PIN, led_set_status);
+    }
+}
+
+void delay(uint32_t ms)
+{
+  HAL_Delay(ms);
+}
+
+/* End of file -------------------------------------------------------- */

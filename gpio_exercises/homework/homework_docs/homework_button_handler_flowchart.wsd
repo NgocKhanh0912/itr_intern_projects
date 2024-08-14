@@ -1,0 +1,97 @@
+@startuml
+start
+partition "**process** button_handler" {
+  :initialize button_current_state variable;
+  switch (button_current_state)
+  case (IDLE)
+    : get button state;
+    if (state?) then (1)
+    : button_current_state = DETECT_POS_EDGE;
+    : start_tick = current SysTick;
+    endif;
+
+  case (DETECT_POS_EDGE)
+    if (current SysTick - start_tick >= 50) then (yes)
+      : get button state;
+      if (state?) then (0)
+        : button_current_state = IDLE;
+      else (1)
+        : button_current_state = DETECT_SINGLE_CLICK;
+        : start_tick = current SysTick;
+      endif
+    endif
+
+  case (DETECT_SINGLE_CLICK)
+    : get button state;
+    if ((state=0)? and (current SysTick - start_tick < 500)?) then (yes)
+      : button_current_state = END_SINGLE_CLICK;
+      : start_tick = current SysTick;
+    elseif ((current SysTick - start_tick >= 500)?) then (yes)
+      : button_current_state = DETECT_HOLD;
+    endif
+
+  case (END_SINGLE_CLICK)
+    : get button state;
+    if ((state=0)? and (current SysTick - start_tick >= 300)?) then (yes)
+      : button_current_state = SINGLE_CLICK;
+    elseif ((state=1)? and (current SysTick - start_tick < 300)?) then (yes)
+      : button_current_state = DETECT_PRE_DOUBLE_CLICK;
+      : start_tick = current SysTick;
+    endif
+
+  case (SINGLE_CLICK)
+    : update button_evt = SINGLE_CLICK;
+    : button_current_state = IDLE;
+
+  case (DETECT_PRE_DOUBLE_CLICK)
+    if (current SysTick - start_tick >= 50) then (yes)
+      : get button state;
+      if (state?) then (0)
+        : button_current_state = SINGLE_CLICK;
+      else (1)
+        : button_current_state = DETECT_DOUBLE_CLICK;
+        : start_tick = current SysTick;
+      endif
+    endif
+
+  case (DETECT_DOUBLE_CLICK)
+    : get button state;
+    if ((state=0)? and (current SysTick - start_tick < 500)?) then (yes)
+      : button_current_state = DOUBLE_CLICK;
+      : start_tick = current SysTick;
+    elseif ((state=1)? and (current SysTick - start_tick >= 500)?) then (yes)
+      : button_current_state = SYS_ERROR;
+    endif
+
+  case (DOUBLE_CLICK)
+    : update button_evt = DOUBLE_CLICK;
+    : button_current_state = IDLE;
+
+  case (DETECT_HOLD)
+    : get button state;
+    if ((state=0)? and (current SysTick - start_tick <= 3000)?) then (yes)
+      : button_current_state = SYS_ERROR;
+    elseif ((current SysTick - start_tick <= 3000)?) then (yes)
+      : button_current_state = HOLD;
+    endif
+
+  case (HOLD)
+    : update button_evt = HOLD;
+    : get button state;
+    if ((state=0)?) then (yes)
+      : button_current_state = DETECT_RELEASE;
+      : start_tick = current SysTick;
+    endif
+
+  case (DETECT_RELEASE)
+    : update button_evt = RELEASE;
+    : button_current_state = IDLE;
+
+  case (SYS_ERROR)
+    : update button_evt = ERROR;
+    : button_current_state = IDLE;
+
+  endswitch
+}
+end
+@enduml

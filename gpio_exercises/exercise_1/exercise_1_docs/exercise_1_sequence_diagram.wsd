@@ -1,0 +1,59 @@
+@startuml Sequence_Diagram_Exercise-1
+
+actor User
+participant System
+
+User -> System: Start
+activate System
+System -> System: Define states (IDLE, STATE_1, STATE_2, STATE_3)
+System -> System: Initialize current_state = IDLE
+
+alt While (Input available)
+    loop Read Input
+        User -> System: Provide Input
+        System -> System: Read Input
+
+        alt current_state == IDLE
+            alt Input == 1
+                System -> System: current_state = STATE_1
+            else
+                System -> System: current_state = IDLE
+            end
+        else current_state == STATE_1
+            alt Input == 2
+                System -> System: current_state = STATE_2
+            else
+                System -> System: current_state = STATE_1
+            end
+        else current_state == STATE_2
+            alt Input == 3
+                System -> System: current_state = STATE_3
+            else
+                System -> System: current_state = STATE_2
+            end
+        else current_state == STATE_3
+            alt Input == 3
+                System -> System: current_state = IDLE
+            else
+                System -> System: current_state = STATE_3
+            end
+        end
+
+        System -> System: Read current_state
+
+        alt current_state == IDLE
+            System -> User: All LEDs are OFF in 1s
+        else current_state == STATE_1
+            System -> User: Only LED1 (PB3) (LED Red) is ON in 1s
+        else current_state == STATE_2
+            System -> User: Only LED2 (PB5) (LED Green) is ON in 1s
+        else current_state == STATE_3
+            System -> User: Only LED3 (PB7) (LED Blue) is ON in 1s
+        end
+    end
+end
+
+User -> System: Stop
+deactivate System
+
+@enduml

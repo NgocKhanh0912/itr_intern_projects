@@ -1,0 +1,6 @@
+../Core/Src/system/sys_button.c:38:21:sys_button_start	16	static
+../Core/Src/system/sys_button.c:48:18:sys_button_single_click	4	static
+../Core/Src/system/sys_button.c:53:18:sys_button_double_click	4	static
+../Core/Src/system/sys_button.c:58:18:sys_button_hold	4	static
+../Core/Src/system/sys_button.c:63:18:sys_button_release	4	static
+../Core/Src/system/sys_button.c:69:28:sys_button_init	24	static
