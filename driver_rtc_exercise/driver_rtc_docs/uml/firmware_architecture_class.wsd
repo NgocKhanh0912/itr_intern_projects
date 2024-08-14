@@ -1,0 +1,48 @@
+@startuml rtc_exercise_firmware_architecture_class
+
+class Application {
+  main
+}
+
+class System_service {
+  sys_manage
+  --
+  sys_protocol
+  --
+  sys_time
+}
+
+class Middleware {
+  common
+  --
+  cbuffer
+}
+
+class Driver {
+  drv_ds1307
+  --
+  drv_serial
+
+}
+
+class BSP {
+  bsp_callback
+  --
+  bsp_uart
+  --
+  bsp_i2c
+}
+
+class HAL {
+  HAL_UART
+  --
+  HAL_I2C
+}
+
+class Hardware {
+  USB_to_UART
+  --
+  RTC_DS1307
+}
+
+@enduml
