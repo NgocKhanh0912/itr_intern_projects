@@ -1,0 +1,27 @@
+@startuml
+
+hide empty description
+
+[*] -> SYS_STATE_0
+
+state SYS_STATE_0: LED 1, 2, 3 OFF
+state SYS_STATE_1: LED 1 ON, LED 2 and 3 OFF
+state SYS_STATE_2: LED 2 ON, LED 1 and 3 OFF
+state SYS_STATE_3: LED 3 ON, LED 1 and 2 OFF
+
+SYS_STATE_0 -> SYS_STATE_1: button_evt = SYS_BUTTON_EVT_SINGLE_CLICK
+SYS_STATE_0 -> SYS_STATE_0: button_evt is the other state
+
+SYS_STATE_1 -down-> SYS_STATE_2: button_evt = SYS_BUTTON_EVT_DOUBLE_CLICK
+SYS_STATE_1 -down-> SYS_STATE_0: button_evt = SYS_BUTTON_EVT_HOLD
+SYS_STATE_1 -down-> SYS_STATE_1: button_evt is the other state
+
+SYS_STATE_2 -down-> SYS_STATE_3: button_evt = SYS_BUTTON_EVT_DOUBLE_CLICK
+SYS_STATE_2 -down-> SYS_STATE_0: button_evt = SYS_BUTTON_EVT_HOLD
+SYS_STATE_2 -down-> SYS_STATE_2: button_evt is the other state
+
+SYS_STATE_3 -> SYS_STATE_1: button_evt = SYS_BUTTON_EVT_DOUBLE_CLICK
+SYS_STATE_3 -> SYS_STATE_0: button_evt = SYS_BUTTON_EVT_HOLD
+SYS_STATE_3 -> SYS_STATE_3: button_evt is the other state
+
+@enduml

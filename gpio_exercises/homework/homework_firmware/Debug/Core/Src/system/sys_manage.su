@@ -1,0 +1,4 @@
+../Core/Src/system/sys_manage.c:49:6:sys_manage_loop	8	static
+../Core/Src/system/sys_manage.c:60:6:sys_manage_fsm	8	static
+../Core/Src/system/sys_manage.c:133:28:sys_manage_start	16	static
+../Core/Src/system/sys_manage.c:145:28:sys_manage_button	24	static

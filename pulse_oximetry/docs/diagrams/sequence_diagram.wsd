@@ -1,0 +1,121 @@
+@startuml sequence_diagram
+
+skinparam SequenceMessageAlignment center
+
+box "Peripheral" #LightSalmon
+participant usb_uart
+participant button
+participant sensor
+participant oled
+participant buzzer
+participant rtc
+end box
+
+box "BSP" #LightBlue
+participant bsp_adc
+participant bsp_callback
+participant bsp_flash
+participant bsp_gpio
+participant bsp_i2c
+participant bsp_serial
+participant bsp_timer
+participant bsp_uart
+participant bsp_utils
+end box
+
+box "Driver" #LightGreen
+participant drv_button
+participant drv_buzzer
+participant drv_ds1307
+participant drv_hr
+participant drv_ssd1306
+end box
+
+box "System Service" #LightPink
+participant sys_button
+participant sys_display
+participant sys_measure
+participant sys_protocol
+participant sys_storage
+participant sys_time
+participant sys_manage
+end box
+
+group normal_operation
+sensor -> bsp_adc: Signal
+bsp_adc -> drv_hr: Signal
+drv_hr -> sys_measure: Signal
+sys_measure -> sys_manage: Heart rate + PPG signal
+group heart_rate_not_between_thresholds
+sys_manage -> sys_display: Heart rate + PPG signal + Warning
+sys_manage -> drv_buzzer: Beep
+sys_display -> drv_ssd1306: Heart rate + PPG signal + Warning
+drv_ssd1306 -> bsp_i2c: Heart rate + PPG signal + Warning
+drv_buzzer -> bsp_gpio: Beep
+bsp_i2c -> oled: Heart rate + PPG signal + Warning
+bsp_gpio -> buzzer: Beep
+end
+sys_display -> drv_ssd1306: Heart rate + PPG signal
+drv_ssd1306 -> bsp_i2c: Heart rate + PPG signal
+bsp_i2c -> oled: Heart rate + graph
+end
+
+group button
+button -> bsp_callback: Event
+bsp_callback -> bsp_gpio: Event
+bsp_gpio -> drv_button: Event
+drv_button -> sys_button: Event
+sys_button -> sys_manage: Event
+group single_click_evt
+sys_manage -> sys_storage: Record heart rate + time
+sys_storage -> bsp_flash: Record heart rate + time
+end
+group hold_click_evt
+sys_manage -> sys_display: Set display OFF
+sys_display -> drv_ssd1306: Set display OFF
+drv_ssd1306 -> bsp_i2c: Set display OFF
+bsp_i2c -> oled: Set display OFF
+end
+end
+
+group gui_interaction
+usb_uart -> bsp_callback: Receive packet
+bsp_callback -> bsp_uart: Forward packet
+bsp_uart -> sys_protocol: Forward packet
+sys_protocol -> sys_manage: Packet
+group check_uart_pkt
+sys_manage -> sys_protocol: Send confirm packet
+sys_protocol -> bsp_uart: Send confirm packet
+bsp_uart -> usb_uart: Send confirm packet
+end
+group get_data_pkt
+sys_manage -> sys_protocol: Package necessary data and send packet
+sys_protocol -> bsp_uart: Send packet
+bsp_uart -> usb_uart: Send packet
+end
+group set_threshold_pkt
+sys_manage -> sys_manage: Set thresholds
+sys_manage -> sys_display: Display thresholds
+sys_display -> drv_ssd1306: Display thresholds
+drv_ssd1306 -> bsp_i2c: Display thresholds
+bsp_i2c -> oled: Display thresholds
+end
+group set_interval_pkt
+sys_manage -> sys_manage: Set interval to perform recording operation
+sys_manage -> bsp_timer: Set interval
+sys_manage -> sys_storage: Perform recording action with interval
+sys_storage -> bsp_flash: Perform recording action with interval
+end
+group set_get_time
+sys_manage -> sys_time: Set time
+sys_time -> drv_ds1307: Set time
+drv_ds1307 -> bsp_i2c: Set time
+bsp_i2c -> rtc: Set time
+end
+group clear_records
+sys_manage -> sys_storage: Erase flash
+sys_storage -> bsp_flash: Erase flash
+end
+end
+
+@enduml

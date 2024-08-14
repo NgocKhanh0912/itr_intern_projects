@@ -1,0 +1,25 @@
+@startuml
+
+skinparam ResponseMessageBelowArrow true
+
+actor user #black
+participant button
+participant hal
+participant driver_button
+participant sys_button
+participant sys_mng
+
+user -> button : press
+
+button -> hal : pin_state
+
+hal -> driver_button : pin_state
+
+driver_button -> sys_button : timer
+driver_button -> sys_button : pin_state
+
+sys_button -> sys_mng : button_event
+
+sys_mng -> user : print_event
+
+@enduml

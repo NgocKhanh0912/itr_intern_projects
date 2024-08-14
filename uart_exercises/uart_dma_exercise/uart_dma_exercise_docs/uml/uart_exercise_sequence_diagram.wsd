@@ -1,0 +1,57 @@
+@startuml
+
+actor PC #Black
+
+box "Hardware" #LightPink
+participant UART
+end box
+
+box "HAL " #Orchid
+participant HAL_UART
+end box
+
+box "BSP" #MediumPurple
+participant bsp_callback
+participant bsp_uart
+end box
+
+box "Device Drivers" #SkyBlue
+participant drv_serial
+end box
+
+box "System Services" #LightGreen
+participant sys_serial
+end box
+
+box "Applicaion" #IndianRed
+participant app_main
+end box
+
+'Application
+app_main -> sys_serial : initialize the \nsystem serial \ncommunication
+
+'System Services
+sys_serial -> drv_serial :  start the UART
+sys_serial <-> drv_serial : transfer the data
+sys_serial --> sys_serial : handle the received data
+
+'Device Drivers
+drv_serial <-> bsp_uart : transfer data
+drv_serial -> bsp_uart : intitialize
+
+'BSP
+bsp_callback -> drv_serial: interrupt service routine
+
+'HAL
+HAL_UART -> bsp_callback : interrupt event callback
+HAL_UART <- bsp_uart : enable/disable UART interrupt
+HAL_UART <-> bsp_uart : send/receive data
+'Hardware
+UART <- HAL_UART : initialize
+UART <-> HAL_UART : data transfer
+UART -> HAL_UART : interrupt flag
+
+'User
+PC <-> UART : data
+
+@enduml

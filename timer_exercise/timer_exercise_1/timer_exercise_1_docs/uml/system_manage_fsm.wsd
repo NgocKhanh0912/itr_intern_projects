@@ -1,0 +1,29 @@
+@startuml system_manage_fsm
+
+hide empty description
+
+[*] -down-> IDLE
+
+state IDLE : LED 1, 2, 3 OFF
+IDLE -left-> LED1_BLINK : button_evt = SINGLE_CLICK
+
+state LED1_BLINK : blink LED1\n with 1s period
+LED1_BLINK -left-> LED1_WAIT_TRANSIT : button_evt = DOUBLE_CLICK
+LED1_BLINK -up-> LED1_WAIT_OFF : button_evt = HOLD
+LED1_WAIT_OFF -up-> IDLE : timer_flag = 1
+LED1_WAIT_TRANSIT -up-> LED2_BLINK : timer_flag = 1
+
+
+state LED2_BLINK : blink LED2\n with 1s period
+LED2_BLINK -down-> LED2_WAIT_TRANSIT: button_evt = DOUBLE_CLICK
+LED2_BLINK -right-> LED2_WAIT_OFF : button_evt = HOLD
+LED2_WAIT_OFF -right-> IDLE: timer_flag = 1
+LED2_WAIT_TRANSIT -down-> LED3_BLINK : timer_flag = 1
+
+state LED3_BLINK : blink LED3\n with 1s period
+LED3_BLINK -down-> LED3_WAIT_TRANSIT : button_evt = DOUBLE_CLICK
+LED3_BLINK -up-> LED3_WAIT_OFF : button_evt = HOLD
+LED3_WAIT_OFF -up-> IDLE : timer_flag = 1
+LED3_WAIT_TRANSIT -down-> LED1_BLINK : timer_flag = 1
+
+@enduml

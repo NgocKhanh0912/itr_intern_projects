@@ -1,0 +1,45 @@
+@startuml sequence_diagram
+
+actor User #Black
+
+box "Hardware" #LightPink
+participant USB_to_UART
+end box
+
+box "HAL " #Orchid
+participant HAL_UART
+end box
+
+box "BSP" #MediumPurple
+participant bsp_uart
+end box
+
+box "System Services" #LightGreen
+participant sys_manage
+end box
+
+box "Application" #LightPink
+participant main
+end box
+
+main -> sys_manage : initialize UART
+sys_manage -> bsp_uart : initialize UART
+bsp_uart -> HAL_UART : initialize UART
+
+User -> USB_to_UART : enter data
+USB_to_UART -> main : receive data by UART interrupt
+
+main -> main : store raw data\nin rx_buffer
+
+main -> sys_manage : rx_buffer
+main -> sys_manage : call sys_manage_fsm
+
+sys_manage -> sys_manage : system manage fsm
+sys_manage -> main : tx_buffer included a full command
+
+main -> bsp_uart : transmit a command\nfrom tx_buffer to User
+bsp_uart -> HAL_UART : transmit a command\nfrom tx_buffer to User
+HAL_UART -> USB_to_UART : transmit a command\nfrom tx_buffer to User
+USB_to_UART -> User: transmit a command\nfrom tx_buffer to User
+
+@enduml

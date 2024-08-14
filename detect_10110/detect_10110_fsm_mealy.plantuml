@@ -1,0 +1,29 @@
+@startuml detect_10110_fsm_mealy
+
+title "Detect '10110' Mealy Finite State Machine"
+skinparam dpi 90
+
+S0: Wait for bit 1
+S1: 1
+S2: 10
+S3: 101
+S4: 1011
+
+[*] --> S0 : start
+S0 --> S1 : Input = 1 / Not detected, Output = 0
+S0 --> S0 : Input = 0 / Not detected, Output = 0
+
+S1 --> S2 : Input = 0 / Not detected, Output = 0
+S1 --> S1 : Input = 1 / Not detected, Output = 0
+
+S2 --> S3 : Input = 1 / Not detected, Output = 0
+S2 --> S0 : Input = 0 / Not detected, Output = 0
+
+S3 --> S4 : Input = 1 / Not detected, Output = 0
+S3 --> S2 : Input = 0 / Not detected, Output = 0
+
+S4 --> S0 : Input = 0 / Detected, Output = 1
+S4 --> S1 : Input = 1 / Not detected, Output = 0
+
+@enduml
+

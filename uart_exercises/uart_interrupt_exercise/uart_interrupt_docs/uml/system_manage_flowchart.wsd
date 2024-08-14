@@ -1,0 +1,85 @@
+@startuml system_manage_flowchart
+
+start
+
+partition "**Process** system manage" {
+  :initialize static variable: sys_current_state;
+
+  switch (sys_current_state) 
+  case (SYS_STATE_IDLE)
+    if (rx_buffer_index == 0) then (YES)
+      : sys_current_state = SYS_STATE_IDLE;
+    else (NO)
+      if (rx_buffer received a full command) then (YES)
+        :sys_current_state = SYS_STATE_RECEIVED_FULL_COMMAND;
+      else (NO)
+        if (rx_buffer not received a full command) then (YES)
+          :sys_current_state = SYS_STATE_NOT_RECEIVED_FULL_COMMAND; 
+        else (NO)
+          :sys_current_state = SYS_STATE_RECEIVED_WRONG_DATA; 
+        endif
+      endif
+    endif    
+    : break;
+
+  case (SYS_STATE_NOT_RECEIVED_FULL_COMMAND)
+    if (rx_buffer not received a full command) then (YES)
+      : sys_current_state = SYS_STATE_NOT_RECEIVED_FULL_COMMAND;
+    else (NO)
+      if (rx_buffer received a full command) then (YES)
+          :sys_current_state = SYS_STATE_RECEIVED_FULL_COMMAND; 
+      else (NO)
+          :sys_current_state = SYS_STATE_RECEIVED_WRONG_DATA; 
+      endif
+    endif    
+    : break; 
+
+  case (SYS_STATE_RECEIVED_FULL_COMMAND)
+    if (rx_buffer_index == 0) then (YES)
+      : sys_current_state = SYS_STATE_IDLE;
+    else (NO)
+      if (rx_buffer received a full command) then (YES)
+        :sys_current_state = SYS_STATE_RECEIVED_FULL_COMMAND;
+      else (NO)
+        if (rx_buffer not received a full command) then (YES)
+          :sys_current_state = SYS_STATE_NOT_RECEIVED_FULL_COMMAND; 
+        else (NO)
+          :sys_current_state = SYS_STATE_RECEIVED_WRONG_DATA; 
+        endif
+      endif
+    endif    
+    : break;
+
+  case (SYS_STATE_RECEIVED_WRONG_DATA)
+    if (rx_buffer_index == 0) then (YES)
+      : sys_current_state = SYS_STATE_IDLE;
+    else (NO)
+      if (rx_buffer received a full command) then (YES)
+        :sys_current_state = SYS_STATE_RECEIVED_FULL_COMMAND;
+      else (NO)
+        if (rx_buffer not received a full command) then (YES)
+          :sys_current_state = SYS_STATE_NOT_RECEIVED_FULL_COMMAND; 
+        else (NO)
+          :sys_current_state = SYS_STATE_RECEIVED_WRONG_DATA; 
+        endif
+      endif
+    endif
+    : break;    
+  endswitch
+
+  switch (sys_current_state) 
+  case (SYS_STATE_RECEIVED_FULL_COMMAND)
+    : Write a full command from rx_buffer to cb_buffer,\nremove that full command;
+    : break;
+  case (SYS_STATE_RECEIVED_WRONG_DATA)
+    : remove wrong data from rx_buffer;
+    : break;
+  case (SYS_STATE_NOT_RECEIVED_FULL_COMMAND)
+  case (SYS_STATE_IDLE)
+    : sys_manage_handled_flag = 1;
+    : break;
+  endswitch
+  
+}
+end
+@enduml

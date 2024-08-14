@@ -1,0 +1,5 @@
+../Core/Src/bsp/bsp_uart.c:49:19:bsp_uart_init	16	static
+../Core/Src/bsp/bsp_uart.c:70:19:bsp_uart_start_read_to_idle_it	32	static
+../Core/Src/bsp/bsp_uart.c:83:19:bsp_uart_stop_read_to_idle_it	24	static
+../Core/Src/bsp/bsp_uart.c:94:19:bsp_uart_print	24	static
+../Core/Src/bsp/bsp_uart.c:108:19:bsp_uart_print_length	32	static

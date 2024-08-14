@@ -1,0 +1,49 @@
+@startuml Flowchart_Exercise-1
+start
+
+:Define states (IDLE, STATE_1, STATE_2, STATE_3);
+:Initialize current_state = IDLE;
+
+while (Input available) is (YES)
+    :Read Input;
+    if (current_state == IDLE) then (YES)
+        if (Input == 1) then (YES)
+            :current_state = STATE_1;
+        else (NO)
+            :current_state = IDLE; 
+        endif
+    elseif (current_state == STATE_1) then (YES)
+        if (Input == 2) then (YES)
+            :current_state = STATE_2;
+        else (NO)
+            :current_state = STATE_1;
+        endif
+    elseif (current_state == STATE_2) then (YES)
+        if (Input == 3) then (YES)
+            :current_state = STATE_3;
+        else (NO)
+            :current_state = STATE_2;
+        endif
+    elseif (current_state == STATE_3) then (YES)
+        if (Input == 0) then (YES)
+            :current_state = IDLE;
+        else (NO)
+            :current_state = STATE_3;
+        endif
+    endif
+
+    :Read current_state;
+    if (current_state == IDLE) then (YES)
+        :All LEDs are OFF;
+    elseif (current_state == STATE_1) then (YES)
+        :Only LED1 (PB3) (LED Red) is ON;
+    elseif (current_state == STATE_2) then (YES)
+        :Only LED2 (PB5) (LED Green) is ON;
+    elseif (current_state == STATE_3) then (YES)
+        :Only LED3 (PB7) (LED Blue) is ON;
+    endif
+    :Delay 1s;
+endwhile
+
+stop
+@enduml

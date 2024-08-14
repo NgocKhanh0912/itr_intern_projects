@@ -1,0 +1,180 @@
+@startuml
+
+start
+partition "**process** led_handler" {
+  :initialize current_state variable;
+  switch (current_state) 
+  case (IDLE)
+    switch (button_evt)
+    case (RELEASE)
+      :current_state = IDLE;
+    
+    case (SINGLE_CLICK)
+      :current_state = LED_1;
+
+    case (DOUBLE_CLICK)
+      :current_state = LED_12;
+
+    case (HOLD)
+      :current_state = LED_123;
+
+    case (DEFAULT)
+      :current_state = IDLE;
+    endswitch
+
+  case (LED_1)
+    switch (button_evt)
+    case (RELEASE)
+      :current_state = IDLE;
+    
+    case (SINGLE_CLICK)
+      :current_state = LED_2;
+
+    case (DOUBLE_CLICK)
+      :current_state = LED_12;
+
+    case (HOLD)
+      :current_state = LED_123;
+
+    case (DEFAULT)
+      :current_state = IDLE;
+    endswitch
+
+  case (LED_2)
+    switch (button_evt)
+    case (RELEASE)
+      :current_state = IDLE;
+    
+    case (SINGLE_CLICK)
+      :current_state = LED_3;
+
+    case (DOUBLE_CLICK)
+      :current_state = LED_12;
+
+    case (HOLD)
+      :current_state = LED_123;
+
+    case (DEFAULT)
+      :current_state = IDLE;
+    endswitch
+
+  case (LED_3)
+    switch (button_evt)
+    case (RELEASE)
+      :current_state = IDLE;
+    
+    case (SINGLE_CLICK)
+      :current_state = LED_1;
+
+    case (DOUBLE_CLICK)
+      :current_state = LED_12;
+
+    case (HOLD)
+      :current_state = LED_123;
+
+    case (DEFAULT)
+      :current_state = IDLE;
+    endswitch
+
+  case (LED_12)
+    switch (button_evt)
+    case (RELEASE)
+      :current_state = IDLE;
+    
+    case (SINGLE_CLICK)
+      :current_state = LED_1;
+
+    case (DOUBLE_CLICK)
+      :current_state = LED_23;
+
+    case (HOLD)
+      :current_state = LED_123;
+
+    case (DEFAULT)
+      :current_state = IDLE;
+    endswitch
+
+  case (LED_23)
+    switch (button_evt)
+    case (RELEASE)
+      :current_state = IDLE;
+    
+    case (SINGLE_CLICK)
+      :current_state = LED_1;
+
+    case (DOUBLE_CLICK)
+      :current_state = LED_31;
+
+    case (HOLD)
+      :current_state = LED_123;
+
+    case (DEFAULT)
+      :current_state = IDLE;
+    endswitch
+
+  case (LED_31)
+    switch (button_evt)
+    case (RELEASE)
+      :current_state = IDLE;
+    
+    case (SINGLE_CLICK)
+      :current_state = LED_1;
+
+    case (DOUBLE_CLICK)
+      :current_state = LED_12;
+
+    case (HOLD)
+      :current_state = LED_123;
+
+    case (DEFAULT)
+      :current_state = IDLE;
+    endswitch
+
+  case (LED_123)
+    switch (button_evt)
+    case (RELEASE)
+      :current_state = IDLE;
+    
+    case (SINGLE_CLICK)
+      :current_state = LED_1;
+
+    case (DOUBLE_CLICK)
+      :current_state = LED_12;
+
+    case (HOLD)
+      :current_state = LED_123;
+
+    case (DEFAULT)
+      :current_state = IDLE;
+    endswitch
+  endswitch
+
+  switch (current_state)
+  case (IDLE)
+    :clear LEDs;
+
+  case (LED_1)
+    :set red LED on and the others off;
+
+  case (LED_2)
+    :set green LED on and the others off;
+  
+  case (LED_3)
+    :set blue LED on and the others off;
+
+  case (LED_12)
+    :set red and green LED on and blue LED off;
+
+  case (LED_23)
+    :set green and blue LED on and red LED off;
+
+  case (LED_31)
+    :set blue and red LED on and green LED off;
+
+  case (LED_123)
+    :set all LEDs on;
+  endswitch
+}
+end
+
+@enduml

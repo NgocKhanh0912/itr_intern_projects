@@ -1,0 +1,6 @@
+../Core/Src/system/sys_button.c:38:21:sys_button_start	2
+../Core/Src/system/sys_button.c:48:18:sys_button_single_click	1
+../Core/Src/system/sys_button.c:53:18:sys_button_double_click	1
+../Core/Src/system/sys_button.c:58:18:sys_button_hold	1
+../Core/Src/system/sys_button.c:63:18:sys_button_release	1
+../Core/Src/system/sys_button.c:69:28:sys_button_init	2

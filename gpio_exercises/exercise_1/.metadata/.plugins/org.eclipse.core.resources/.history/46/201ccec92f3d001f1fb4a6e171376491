@@ -1,0 +1,51 @@
+/**
+ * @file       led.c
+ * @copyright
+ * @license
+ * @version    1.0.0
+ * @date       05/07/2024
+ * @author     Khanh Nguyen Ngoc
+ *             Giang Phan Truong
+ *             Viet Hoang Xuan
+ *
+ * @brief      Driver for LED
+ *
+ * @note       None
+ * @example    None
+ */
+
+/* Includes ----------------------------------------------------------- */
+#include "drv/led.h"
+
+/* Private defines ---------------------------------------------------- */
+/* Private enumerate/structure ---------------------------------------- */
+/* Private macros ----------------------------------------------------- */
+/* Public variables --------------------------------------------------- */
+uint16_t led_pin[] = {GPIO_PIN_3, GPIO_PIN_5, GPIO_PIN_7};
+/* Private variables -------------------------------------------------- */
+/* Private function prototypes ---------------------------------------- */
+
+/* Function definitions ----------------------------------------------- */
+uint16_t led_init()
+{
+  // Set LED Pin on GPIOB to 0
+  for (uint16_t i = 0; i < NUM_OF_LEDS; i++)
+  {
+	  HAL_GPIO_WritePin(LED_PORT, led_pin[i], LED_OFF);
+  }
+  return LED_INIT_STATUS_OK;
+}
+
+uint16_t led_set(led_num_t led_num)
+{
+  HAL_GPIO_WritePin(LED_PORT, *(led_pin+(uint16_t)led_num), LED_ON);
+  return LED_SET_STATUS_OK;
+}
+
+uint16_t led_clear(led_num_t led_num)
+{
+	HAL_GPIO_WritePin(LED_PORT, led_pin[led_num], LED_OFF);
+	return LED_CLEAR_STATUS_OK;
+}
+
+/* End of file -------------------------------------------------------- */

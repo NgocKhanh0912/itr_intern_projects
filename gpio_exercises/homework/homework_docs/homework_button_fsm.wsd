@@ -1,0 +1,55 @@
+@startuml
+
+hide empty description
+
+[*] -> idle
+
+state idle: button_evt = SYS_BUTTON_EVT_NONE
+idle -down-> detectPosEdge : 1
+
+state detectPosEdge
+detectPosEdge -right-> detectSingleClick : 1, t >= 30ms
+detectPosEdge -up-> idle : 0, t >= 30ms
+
+state detectSingleClick
+detectSingleClick -up-> endOfSingleClick : 0, t < 500ms
+detectSingleClick -down-> detectHold : t >= 500ms
+
+state endOfSingleClick
+endOfSingleClick -up-> singleClick : 0, t >= 300ms
+endOfSingleClick -up-> detectPreDoubleClick : 1, t < 300ms
+
+state detectPreDoubleClick
+detectPreDoubleClick -right-> detectDoubleClick : 1, t >= 30ms
+detectPreDoubleClick -left-> singleClick :0, t >= 30ms
+
+state detectDoubleClick
+detectDoubleClick -up-> doubleClick : 0, t < 500ms
+detectDoubleClick -up-> sysErr : t >= 500ms
+
+state detectHold
+detectHold -right-> sysErr : 0, t <= 3s
+detectHold -down-> Hold : 1, t > 3s
+
+state Hold : button_evt = SYS_BUTTON_EVT_HOLD
+Hold -left-> detectRelease : 0
+
+state detectRelease
+detectRelease -right-> Hold : 1, t <= 300ms
+detectRelease -left-> Release : 0, t > 300ms
+
+state Release : button_evt = SYS_BUTTON_EVT_RELEASE
+Release --> idle
+
+state singleClick : button_evt = SYS_BUTTON_EVT_SINGLE_CLICK
+singleClick -down-> idle
+
+state doubleClick : button_evt = SYS_BUTTON_EVT_DOUBLE_CLICK
+doubleClick -left-> idle
+
+state sysErr: button_evt = SYS_BUTTON_EVT_ERROR
+sysErr -left-> idle
+
+
+@enduml
+

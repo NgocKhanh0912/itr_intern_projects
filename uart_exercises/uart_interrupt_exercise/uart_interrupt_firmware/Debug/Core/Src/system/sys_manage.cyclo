@@ -1,0 +1,5 @@
+../Core/Src/system/sys_manage.c:61:14:sys_init	3
+../Core/Src/system/sys_manage.c:80:14:sys_manage_fsm	18
+../Core/Src/system/sys_manage.c:185:6:sys_uart_rx_event_callback	1
+../Core/Src/system/sys_manage.c:192:13:sys_check_received_a_full_command	7
+../Core/Src/system/sys_manage.c:209:13:sys_check_not_received_a_full_command	11

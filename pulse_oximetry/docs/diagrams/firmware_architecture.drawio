@@ -1,0 +1,127 @@
+<mxfile host="65bd71144e">
+    <diagram id="SvoXOzmZpjr0ulOsbsCD" name="Page-1">
+        <mxGraphModel dx="1069" dy="1179" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+            <root>
+                <mxCell id="0"/>
+                <mxCell id="1" parent="0"/>
+                <mxCell id="3" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#000000;strokeWidth=2;opacity=50;" parent="1" vertex="1">
+                    <mxGeometry x="40" y="-40" width="910" height="680" as="geometry"/>
+                </mxCell>
+                <mxCell id="4" value="Hardware Abstraction Layer (HAL)" style="swimlane;whiteSpace=wrap;html=1;fillColor=#fa6800;fontColor=#000000;strokeColor=#C73500;strokeWidth=2;fontSize=14;" parent="1" vertex="1">
+                    <mxGeometry x="50" y="540" width="890" height="90" as="geometry"/>
+                </mxCell>
+                <mxCell id="7" value="HAL_GPIO" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;fontColor=#000000;fontStyle=1;fontSize=14;labelBorderColor=none;strokeColor=#000000;strokeWidth=2;" parent="4" vertex="1">
+                    <mxGeometry x="120" y="30" width="100" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="8" value="HAL_TIMER" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;fontColor=#000000;fontStyle=1;fontSize=14;labelBorderColor=none;strokeColor=#000000;strokeWidth=2;" parent="4" vertex="1">
+                    <mxGeometry x="230" y="30" width="100" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="10" value="HAL_I2C" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;fontColor=#000000;fontStyle=1;fontSize=14;labelBorderColor=none;strokeColor=#000000;strokeWidth=2;" parent="4" vertex="1">
+                    <mxGeometry x="450" y="30" width="100" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="6" value="HAL_FLASH" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;fontColor=#000000;fontStyle=1;fontSize=14;labelBorderColor=none;strokeColor=#000000;strokeWidth=2;" parent="4" vertex="1">
+                    <mxGeometry x="10" y="30" width="100" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="9" value="HAL_UART" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;fontColor=#000000;fontStyle=1;fontSize=14;labelBorderColor=none;strokeColor=#000000;strokeWidth=2;" parent="4" vertex="1">
+                    <mxGeometry x="560" y="30" width="100" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="11" value="HAL_DMA" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;fontColor=#000000;fontStyle=1;fontSize=14;labelBorderColor=none;strokeColor=#000000;strokeWidth=2;" parent="1" vertex="1">
+                    <mxGeometry x="720" y="570" width="100" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="12" value="HAL_EXTI" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;fontColor=#000000;fontStyle=1;fontSize=14;labelBorderColor=none;strokeColor=#000000;strokeWidth=2;" parent="1" vertex="1">
+                    <mxGeometry x="830" y="570" width="100" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="13" value="HAL_ADC" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;fontColor=#000000;fontStyle=1;fontSize=14;labelBorderColor=none;strokeColor=#000000;strokeWidth=2;" parent="1" vertex="1">
+                    <mxGeometry x="390" y="570" width="100" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="20" value="&lt;font color=&quot;#000000&quot;&gt;Board Support Packages (BSPs)&lt;/font&gt;" style="swimlane;whiteSpace=wrap;html=1;fillColor=#d80073;fontColor=#ffffff;strokeColor=#A50040;strokeWidth=2;fontSize=14;opacity=50;" parent="1" vertex="1">
+                    <mxGeometry x="50" y="440" width="890" height="90" as="geometry"/>
+                </mxCell>
+                <mxCell id="24" value="CALLBACK" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;fontColor=#000000;fontStyle=1;fontSize=14;labelBorderColor=none;strokeColor=#000000;strokeWidth=2;" parent="20" vertex="1">
+                    <mxGeometry x="10" y="30" width="100" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="25" value="TIMER" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;fontColor=#000000;fontStyle=1;fontSize=14;labelBorderColor=none;strokeColor=#000000;strokeWidth=2;" parent="20" vertex="1">
+                    <mxGeometry x="230" y="30" width="100" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="26" value="FLASH" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;fontColor=#000000;fontStyle=1;fontSize=14;labelBorderColor=none;strokeColor=#000000;strokeWidth=2;" parent="20" vertex="1">
+                    <mxGeometry x="780" y="30" width="100" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="41" value="ADC" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;fontColor=#000000;fontStyle=1;fontSize=14;labelBorderColor=none;strokeColor=#000000;strokeWidth=2;" parent="20" vertex="1">
+                    <mxGeometry x="670" y="30" width="100" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="42" value="GPIO" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;fontColor=#000000;fontStyle=1;fontSize=14;labelBorderColor=none;strokeColor=#000000;strokeWidth=2;" parent="20" vertex="1">
+                    <mxGeometry x="120" y="30" width="100" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="21" value="UART" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;fontColor=#000000;fontStyle=1;fontSize=14;labelBorderColor=none;strokeColor=#000000;strokeWidth=2;" parent="20" vertex="1">
+                    <mxGeometry x="340" y="30" width="100" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="23" value="I2C" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;fontColor=#000000;fontStyle=1;fontSize=14;labelBorderColor=none;strokeColor=#000000;strokeWidth=2;" parent="20" vertex="1">
+                    <mxGeometry x="560" y="30" width="100" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="22" value="SERIAL" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;fontColor=#000000;fontStyle=1;fontSize=14;labelBorderColor=none;strokeColor=#000000;strokeWidth=2;" parent="1" vertex="1">
+                    <mxGeometry x="500" y="470" width="100" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="43" value="&lt;font color=&quot;#000000&quot;&gt;Device Drivers&lt;/font&gt;" style="swimlane;whiteSpace=wrap;html=1;fillColor=#1ba1e2;fontColor=#ffffff;strokeColor=#006EAF;strokeWidth=2;fontSize=14;opacity=50;" parent="1" vertex="1">
+                    <mxGeometry x="710" y="220" width="230" height="210" as="geometry"/>
+                </mxCell>
+                <mxCell id="44" value="BUTTON" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;fontColor=#000000;fontStyle=1;fontSize=14;labelBorderColor=none;strokeColor=#000000;strokeWidth=2;" parent="43" vertex="1">
+                    <mxGeometry x="10" y="30" width="100" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="52" value="OLED" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;fontColor=#000000;fontStyle=1;fontSize=14;labelBorderColor=none;strokeColor=#000000;strokeWidth=2;" parent="43" vertex="1">
+                    <mxGeometry x="120" y="90" width="100" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="51" value="BUZZER" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;fontColor=#000000;fontStyle=1;fontSize=14;labelBorderColor=none;strokeColor=#000000;strokeWidth=2;" parent="43" vertex="1">
+                    <mxGeometry x="10" y="90" width="100" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="72" value="RTC" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;fontColor=#000000;fontStyle=1;fontSize=14;labelBorderColor=none;strokeColor=#000000;strokeWidth=2;" vertex="1" parent="43">
+                    <mxGeometry x="10" y="150" width="100" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="53" value="SENSOR" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;fontColor=#000000;fontStyle=1;fontSize=14;labelBorderColor=none;strokeColor=#000000;strokeWidth=2;" parent="1" vertex="1">
+                    <mxGeometry x="830" y="250" width="100" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="54" value="&lt;font color=&quot;#000000&quot;&gt;Middlewares&lt;/font&gt;" style="swimlane;whiteSpace=wrap;html=1;fillColor=#1ba1e2;fontColor=#ffffff;strokeColor=#006EAF;strokeWidth=2;fontSize=14;opacity=50;" parent="1" vertex="1">
+                    <mxGeometry x="580" y="220" width="120" height="210" as="geometry"/>
+                </mxCell>
+                <mxCell id="55" value="CIRCULAR&lt;br&gt;BUFFER" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;fontColor=#000000;fontStyle=1;fontSize=14;labelBorderColor=none;strokeColor=#000000;strokeWidth=2;" parent="54" vertex="1">
+                    <mxGeometry x="10" y="30" width="100" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="71" value="COMMON" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;fontColor=#000000;fontStyle=1;fontSize=14;labelBorderColor=none;strokeColor=#000000;strokeWidth=2;" parent="54" vertex="1">
+                    <mxGeometry x="10" y="90" width="100" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="73" value="FFT" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;fontColor=#000000;fontStyle=1;fontSize=14;labelBorderColor=none;strokeColor=#000000;strokeWidth=2;" vertex="1" parent="54">
+                    <mxGeometry x="10" y="150" width="100" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="59" value="&lt;font color=&quot;#000000&quot;&gt;System Services&lt;/font&gt;" style="swimlane;whiteSpace=wrap;html=1;fillColor=#60a917;fontColor=#ffffff;strokeColor=#2D7600;strokeWidth=2;fontSize=14;opacity=50;" parent="1" vertex="1">
+                    <mxGeometry x="580" width="360" height="210" as="geometry"/>
+                </mxCell>
+                <mxCell id="60" value="SYSTEM BUTTON" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;fontColor=#000000;fontStyle=1;fontSize=14;labelBorderColor=none;strokeColor=#000000;strokeWidth=2;" parent="59" vertex="1">
+                    <mxGeometry x="10" y="30" width="100" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="62" value="SYSTEM &lt;br&gt;DSP" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;fontColor=#000000;fontStyle=1;fontSize=14;labelBorderColor=none;strokeColor=#000000;strokeWidth=2;" parent="59" vertex="1">
+                    <mxGeometry x="250" y="30" width="100" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="65" value="SYSTEM &lt;br&gt;PROTOCOL" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;fontColor=#000000;fontStyle=1;fontSize=14;labelBorderColor=none;strokeColor=#000000;strokeWidth=2;" parent="59" vertex="1">
+                    <mxGeometry x="130" y="90" width="100" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="61" value="SYSTEM &lt;br&gt;TIME" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;fontColor=#000000;fontStyle=1;fontSize=14;labelBorderColor=none;strokeColor=#000000;strokeWidth=2;" parent="1" vertex="1">
+                    <mxGeometry x="710" y="30" width="100" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="63" value="SYSTEM &lt;br&gt;DISPLAY" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;fontColor=#000000;fontStyle=1;fontSize=14;labelBorderColor=none;strokeColor=#000000;strokeWidth=2;" parent="1" vertex="1">
+                    <mxGeometry x="590" y="90" width="100" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="64" value="SYSTEM &lt;br&gt;ERROR" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;fontColor=#000000;fontStyle=1;fontSize=14;labelBorderColor=none;strokeColor=#000000;strokeWidth=2;" parent="1" vertex="1">
+                    <mxGeometry x="590" y="150" width="100" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="66" value="&lt;font color=&quot;#000000&quot;&gt;Application&lt;/font&gt;" style="swimlane;whiteSpace=wrap;html=1;fillColor=#60a917;fontColor=#ffffff;strokeColor=#2D7600;strokeWidth=2;fontSize=14;opacity=50;startSize=23;" parent="1" vertex="1">
+                    <mxGeometry x="50" width="520" height="430" as="geometry"/>
+                </mxCell>
+                <mxCell id="67" value="SYSTEM MANAGE" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;fontColor=#000000;fontStyle=1;fontSize=14;labelBorderColor=none;strokeColor=#000000;strokeWidth=2;" parent="66" vertex="1">
+                    <mxGeometry x="10" y="30" width="100" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="70" value="FIRMWARE ARCHITECTURE" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;labelBorderColor=none;strokeWidth=2;fontSize=18;fontColor=#000000;opacity=50;fontStyle=1" parent="1" vertex="1">
+                    <mxGeometry x="40" y="-40" width="910" height="30" as="geometry"/>
+                </mxCell>
+            </root>
+        </mxGraphModel>
+    </diagram>
+</mxfile>

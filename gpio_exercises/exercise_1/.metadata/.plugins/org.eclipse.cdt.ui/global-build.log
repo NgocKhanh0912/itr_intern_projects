@@ -1,0 +1,282 @@
+18:59:07 **** Incremental Build of configuration Debug for project exercise_1_firmware ****
+make -j4 all 
+arm-none-eabi-gcc "../Core/Src/system/sys_manage.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/system/sys_manage.d" -MT"Core/Src/system/sys_manage.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/system/sys_manage.o"
+arm-none-eabi-gcc -o "exercise_1_firmware.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\XUANVIET\Desktop\Intern\06-2024-itr-intern-group-1\gpio_exercises\exercise_1\exercise_1_firmware\STM32F411VETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="exercise_1_firmware.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: exercise_1_firmware.elf
+ 
+arm-none-eabi-size  exercise_1_firmware.elf 
+arm-none-eabi-objdump -h -S exercise_1_firmware.elf  > "exercise_1_firmware.list"
+arm-none-eabi-objcopy  -O ihex exercise_1_firmware.elf  "exercise_1_firmware.hex"
+   text	   data	    bss	    dec	    hex	filename
+   7004	     16	   1576	   8596	   2194	exercise_1_firmware.elf
+arm-none-eabi-objcopy  -O binary exercise_1_firmware.elf  "exercise_1_firmware.bin"
+Finished building: default.size.stdout
+ 
+Finished building: exercise_1_firmware.bin
+Finished building: exercise_1_firmware.hex
+ 
+ 
+Finished building: exercise_1_firmware.list
+ 
+18:59:15 **** Incremental Build of configuration Debug for project exercise_1_firmware ****
+make -j4 all 
+arm-none-eabi-size  exercise_1_firmware.elf 
+   text	   data	    bss	    dec	    hex	filename
+   7004	     16	   1576	   8596	   2194	exercise_1_firmware.elf
+Finished building: default.size.stdout
+ 
+19:01:18 **** Incremental Build of configuration Debug for project exercise_1_firmware ****
+make -j4 all 
+arm-none-eabi-gcc "../Core/Src/app/app_led.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/app/app_led.d" -MT"Core/Src/app/app_led.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/app/app_led.o"
+arm-none-eabi-gcc -o "exercise_1_firmware.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\XUANVIET\Desktop\Intern\06-2024-itr-intern-group-1\gpio_exercises\exercise_1\exercise_1_firmware\STM32F411VETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="exercise_1_firmware.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: exercise_1_firmware.elf
+ 
+arm-none-eabi-size  exercise_1_firmware.elf 
+arm-none-eabi-objdump -h -S exercise_1_firmware.elf  > "exercise_1_firmware.list"
+arm-none-eabi-objcopy  -O ihex exercise_1_firmware.elf  "exercise_1_firmware.hex"
+   text	   data	    bss	    dec	    hex	filename
+   6976	     16	   1576	   8568	   2178	exercise_1_firmware.elf
+arm-none-eabi-objcopy  -O binary exercise_1_firmware.elf  "exercise_1_firmware.bin"
+Finished building: default.size.stdout
+ 
+Finished building: exercise_1_firmware.hex
+Finished building: exercise_1_firmware.bin
+ 
+Finished building: exercise_1_firmware.list
+ 
+ 
+19:09:35 **** Incremental Build of configuration Debug for project exercise_1_firmware ****
+make -j4 all 
+arm-none-eabi-gcc "../Core/Src/app/app_led.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/app/app_led.d" -MT"Core/Src/app/app_led.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/app/app_led.o"
+arm-none-eabi-gcc -o "exercise_1_firmware.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\XUANVIET\Desktop\Intern\06-2024-itr-intern-group-1\gpio_exercises\exercise_1\exercise_1_firmware\STM32F411VETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="exercise_1_firmware.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: exercise_1_firmware.elf
+ 
+arm-none-eabi-size  exercise_1_firmware.elf 
+arm-none-eabi-objdump -h -S exercise_1_firmware.elf  > "exercise_1_firmware.list"
+   text	   data	    bss	    dec	    hex	filename
+   6976	     16	   1576	   8568	   2178	exercise_1_firmware.elf
+arm-none-eabi-objcopy  -O ihex exercise_1_firmware.elf  "exercise_1_firmware.hex"
+arm-none-eabi-objcopy  -O binary exercise_1_firmware.elf  "exercise_1_firmware.bin"
+Finished building: default.size.stdout
+ 
+Finished building: exercise_1_firmware.hex
+Finished building: exercise_1_firmware.bin
+ 
+ 
+Finished building: exercise_1_firmware.list
+ 
+19:11:51 **** Incremental Build of configuration Debug for project exercise_1_firmware ****
+make -j4 all 
+arm-none-eabi-gcc "../Core/Src/system/sys_manage.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/system/sys_manage.d" -MT"Core/Src/system/sys_manage.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/system/sys_manage.o"
+arm-none-eabi-gcc "../Core/Src/app/app_led.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/app/app_led.d" -MT"Core/Src/app/app_led.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/app/app_led.o"
+arm-none-eabi-gcc -o "exercise_1_firmware.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\XUANVIET\Desktop\Intern\06-2024-itr-intern-group-1\gpio_exercises\exercise_1\exercise_1_firmware\STM32F411VETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="exercise_1_firmware.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: exercise_1_firmware.elf
+ 
+arm-none-eabi-size  exercise_1_firmware.elf 
+arm-none-eabi-objdump -h -S exercise_1_firmware.elf  > "exercise_1_firmware.list"
+arm-none-eabi-objcopy  -O ihex exercise_1_firmware.elf  "exercise_1_firmware.hex"
+   text	   data	    bss	    dec	    hex	filename
+   7032	     16	   1576	   8624	   21b0	exercise_1_firmware.elf
+arm-none-eabi-objcopy  -O binary exercise_1_firmware.elf  "exercise_1_firmware.bin"
+Finished building: default.size.stdout
+ 
+Finished building: exercise_1_firmware.hex
+Finished building: exercise_1_firmware.list
+Finished building: exercise_1_firmware.bin
+ 
+ 
+ 
+19:14:59 **** Incremental Build of configuration Debug for project exercise_1_firmware ****
+make -j4 all 
+arm-none-eabi-gcc "../Core/Src/app/app_led.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/app/app_led.d" -MT"Core/Src/app/app_led.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/app/app_led.o"
+arm-none-eabi-gcc -o "exercise_1_firmware.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\XUANVIET\Desktop\Intern\06-2024-itr-intern-group-1\gpio_exercises\exercise_1\exercise_1_firmware\STM32F411VETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="exercise_1_firmware.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: exercise_1_firmware.elf
+ 
+arm-none-eabi-size  exercise_1_firmware.elf 
+arm-none-eabi-objdump -h -S exercise_1_firmware.elf  > "exercise_1_firmware.list"
+arm-none-eabi-objcopy  -O ihex exercise_1_firmware.elf  "exercise_1_firmware.hex"
+   text	   data	    bss	    dec	    hex	filename
+   7004	     16	   1576	   8596	   2194	exercise_1_firmware.elf
+arm-none-eabi-objcopy  -O binary exercise_1_firmware.elf  "exercise_1_firmware.bin"
+Finished building: default.size.stdout
+ 
+Finished building: exercise_1_firmware.hex
+Finished building: exercise_1_firmware.list
+Finished building: exercise_1_firmware.bin
+ 
+ 
+ 
+19:20:06 **** Incremental Build of configuration Debug for project exercise_1_firmware ****
+make -j4 all 
+arm-none-eabi-gcc "../Core/Src/app/app_led.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/app/app_led.d" -MT"Core/Src/app/app_led.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/app/app_led.o"
+arm-none-eabi-gcc -o "exercise_1_firmware.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\XUANVIET\Desktop\Intern\06-2024-itr-intern-group-1\gpio_exercises\exercise_1\exercise_1_firmware\STM32F411VETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="exercise_1_firmware.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: exercise_1_firmware.elf
+ 
+arm-none-eabi-size  exercise_1_firmware.elf 
+arm-none-eabi-objdump -h -S exercise_1_firmware.elf  > "exercise_1_firmware.list"
+arm-none-eabi-objcopy  -O ihex exercise_1_firmware.elf  "exercise_1_firmware.hex"
+   text	   data	    bss	    dec	    hex	filename
+   7032	     16	   1576	   8624	   21b0	exercise_1_firmware.elf
+arm-none-eabi-objcopy  -O binary exercise_1_firmware.elf  "exercise_1_firmware.bin"
+Finished building: default.size.stdout
+ 
+Finished building: exercise_1_firmware.hex
+Finished building: exercise_1_firmware.bin
+ 
+ 
+Finished building: exercise_1_firmware.list
+ 
+20:07:48 **** Incremental Build of configuration Debug for project exercise_1_firmware ****
+make -j4 all 
+arm-none-eabi-gcc "../Core/Src/system/sys_manage.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/system/sys_manage.d" -MT"Core/Src/system/sys_manage.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/system/sys_manage.o"
+arm-none-eabi-gcc "../Core/Src/drv/led.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/drv/led.d" -MT"Core/Src/drv/led.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/drv/led.o"
+In file included from ../Core/Inc/stm32f4xx_hal_conf.h:279,
+                 from ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:29,
+                 from ../Core/Inc/main.h:30,
+                 from ../Core/Inc/drv/led.h:22,
+                 from ../Core/Src/drv/led.c:18:
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_gpio.h:88:36: warning: initialization of 'uint16_t *' {aka 'short unsigned int *'} from 'short unsigned int' makes pointer from integer without a cast [-Wint-conversion]
+   88 | #define GPIO_PIN_3                 ((uint16_t)0x0008)  /* Pin 3 selected    */
+      |                                    ^
+../Core/Src/drv/led.c:24:22: note: in expansion of macro 'GPIO_PIN_3'
+   24 | uint16_t *led_pin = {GPIO_PIN_3, GPIO_PIN_5, GPIO_PIN_7};
+      |                      ^~~~~~~~~~
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_gpio.h:88:36: note: (near initialization for 'led_pin')
+   88 | #define GPIO_PIN_3                 ((uint16_t)0x0008)  /* Pin 3 selected    */
+      |                                    ^
+../Core/Src/drv/led.c:24:22: note: in expansion of macro 'GPIO_PIN_3'
+   24 | uint16_t *led_pin = {GPIO_PIN_3, GPIO_PIN_5, GPIO_PIN_7};
+      |                      ^~~~~~~~~~
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_gpio.h:90:36: warning: excess elements in scalar initializer
+   90 | #define GPIO_PIN_5                 ((uint16_t)0x0020)  /* Pin 5 selected    */
+      |                                    ^
+../Core/Src/drv/led.c:24:34: note: in expansion of macro 'GPIO_PIN_5'
+   24 | uint16_t *led_pin = {GPIO_PIN_3, GPIO_PIN_5, GPIO_PIN_7};
+      |                                  ^~~~~~~~~~
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_gpio.h:90:36: note: (near initialization for 'led_pin')
+   90 | #define GPIO_PIN_5                 ((uint16_t)0x0020)  /* Pin 5 selected    */
+      |                                    ^
+../Core/Src/drv/led.c:24:34: note: in expansion of macro 'GPIO_PIN_5'
+   24 | uint16_t *led_pin = {GPIO_PIN_3, GPIO_PIN_5, GPIO_PIN_7};
+      |                                  ^~~~~~~~~~
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_gpio.h:92:36: warning: excess elements in scalar initializer
+   92 | #define GPIO_PIN_7                 ((uint16_t)0x0080)  /* Pin 7 selected    */
+      |                                    ^
+../Core/Src/drv/led.c:24:46: note: in expansion of macro 'GPIO_PIN_7'
+   24 | uint16_t *led_pin = {GPIO_PIN_3, GPIO_PIN_5, GPIO_PIN_7};
+      |                                              ^~~~~~~~~~
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_gpio.h:92:36: note: (near initialization for 'led_pin')
+   92 | #define GPIO_PIN_7                 ((uint16_t)0x0080)  /* Pin 7 selected    */
+      |                                    ^
+../Core/Src/drv/led.c:24:46: note: in expansion of macro 'GPIO_PIN_7'
+   24 | uint16_t *led_pin = {GPIO_PIN_3, GPIO_PIN_5, GPIO_PIN_7};
+      |                                              ^~~~~~~~~~
+../Core/Src/drv/led.c: In function 'led_set':
+../Core/Src/drv/led.c:42:10: warning: 'return' with a value, in function returning void [-Wreturn-type]
+   42 |   return LED_SET_STATUS_OK;
+      |          ^~~~~~~~~~~~~~~~~
+../Core/Src/drv/led.c:39:6: note: declared here
+   39 | void led_set(led_num_t led_num)
+      |      ^~~~~~~
+../Core/Src/drv/led.c: In function 'led_clear':
+../Core/Src/drv/led.c:48:16: warning: 'return' with a value, in function returning void [-Wreturn-type]
+   48 |         return LED_CLEAR_STATUS_OK;
+      |                ^~~~~~~~~~~~~~~~~~~
+../Core/Src/drv/led.c:45:6: note: declared here
+   45 | void led_clear(led_num_t led_num)
+      |      ^~~~~~~~~
+arm-none-eabi-gcc -o "exercise_1_firmware.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\XUANVIET\Desktop\Intern\06-2024-itr-intern-group-1\gpio_exercises\exercise_1\exercise_1_firmware\STM32F411VETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="exercise_1_firmware.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: exercise_1_firmware.elf
+ 
+arm-none-eabi-size  exercise_1_firmware.elf 
+arm-none-eabi-objdump -h -S exercise_1_firmware.elf  > "exercise_1_firmware.list"
+arm-none-eabi-objcopy  -O ihex exercise_1_firmware.elf  "exercise_1_firmware.hex"
+   text	   data	    bss	    dec	    hex	filename
+   7032	     16	   1576	   8624	   21b0	exercise_1_firmware.elf
+arm-none-eabi-objcopy  -O binary exercise_1_firmware.elf  "exercise_1_firmware.bin"
+Finished building: default.size.stdout
+ 
+Finished building: exercise_1_firmware.hex
+Finished building: exercise_1_firmware.bin
+ 
+ 
+Finished building: exercise_1_firmware.list
+ 
+20:12:42 **** Incremental Build of configuration Debug for project exercise_1_firmware ****
+make -j4 all 
+arm-none-eabi-gcc "../Core/Src/drv/led.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/drv/led.d" -MT"Core/Src/drv/led.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/drv/led.o"
+../Core/Src/drv/led.c: In function 'led_set':
+../Core/Src/drv/led.c:42:10: warning: 'return' with a value, in function returning void [-Wreturn-type]
+   42 |   return LED_SET_STATUS_OK;
+      |          ^~~~~~~~~~~~~~~~~
+../Core/Src/drv/led.c:39:6: note: declared here
+   39 | void led_set(led_num_t led_num)
+      |      ^~~~~~~
+../Core/Src/drv/led.c: In function 'led_clear':
+../Core/Src/drv/led.c:48:16: warning: 'return' with a value, in function returning void [-Wreturn-type]
+   48 |         return LED_CLEAR_STATUS_OK;
+      |                ^~~~~~~~~~~~~~~~~~~
+../Core/Src/drv/led.c:45:6: note: declared here
+   45 | void led_clear(led_num_t led_num)
+      |      ^~~~~~~~~
+arm-none-eabi-gcc -o "exercise_1_firmware.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\XUANVIET\Desktop\Intern\06-2024-itr-intern-group-1\gpio_exercises\exercise_1\exercise_1_firmware\STM32F411VETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="exercise_1_firmware.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: exercise_1_firmware.elf
+ 
+arm-none-eabi-size  exercise_1_firmware.elf 
+arm-none-eabi-objdump -h -S exercise_1_firmware.elf  > "exercise_1_firmware.list"
+arm-none-eabi-objcopy  -O ihex exercise_1_firmware.elf  "exercise_1_firmware.hex"
+   text	   data	    bss	    dec	    hex	filename
+   7024	     20	   1572	   8616	   21a8	exercise_1_firmware.elf
+arm-none-eabi-objcopy  -O binary exercise_1_firmware.elf  "exercise_1_firmware.bin"
+Finished building: default.size.stdout
+ 
+Finished building: exercise_1_firmware.hex
+Finished building: exercise_1_firmware.bin
+ 
+ 
+Finished building: exercise_1_firmware.list
+ 
+20:17:31 **** Incremental Build of configuration Debug for project exercise_1_firmware ****
+make -j4 all 
+arm-none-eabi-gcc "../Core/Src/app/app_led.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/app/app_led.d" -MT"Core/Src/app/app_led.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/app/app_led.o"
+arm-none-eabi-gcc -o "exercise_1_firmware.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\XUANVIET\Desktop\Intern\06-2024-itr-intern-group-1\gpio_exercises\exercise_1\exercise_1_firmware\STM32F411VETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="exercise_1_firmware.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: exercise_1_firmware.elf
+ 
+arm-none-eabi-size  exercise_1_firmware.elf 
+arm-none-eabi-objdump -h -S exercise_1_firmware.elf  > "exercise_1_firmware.list"
+arm-none-eabi-objcopy  -O ihex exercise_1_firmware.elf  "exercise_1_firmware.hex"
+   text	   data	    bss	    dec	    hex	filename
+   7080	     20	   1572	   8672	   21e0	exercise_1_firmware.elf
+arm-none-eabi-objcopy  -O binary exercise_1_firmware.elf  "exercise_1_firmware.bin"
+Finished building: default.size.stdout
+ 
+Finished building: exercise_1_firmware.hex
+Finished building: exercise_1_firmware.list
+Finished building: exercise_1_firmware.bin
+ 
+ 
+ 
+20:40:28 **** Incremental Build of configuration Debug for project exercise_1_firmware ****
+make -j4 all 
+arm-none-eabi-gcc "../Core/Src/system/sys_led.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/system/sys_led.d" -MT"Core/Src/system/sys_led.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/system/sys_led.o"
+arm-none-eabi-gcc "../Core/Src/system/sys_manage.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/system/sys_manage.d" -MT"Core/Src/system/sys_manage.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/system/sys_manage.o"
+arm-none-eabi-gcc "../Core/Src/drv/led.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/drv/led.d" -MT"Core/Src/drv/led.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/drv/led.o"
+arm-none-eabi-gcc "../Core/Src/app/app_led.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/app/app_led.d" -MT"Core/Src/app/app_led.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/app/app_led.o"
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "exercise_1_firmware.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\XUANVIET\Desktop\Intern\06-2024-itr-intern-group-1\gpio_exercises\exercise_1\exercise_1_firmware\STM32F411VETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="exercise_1_firmware.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: exercise_1_firmware.elf
+ 
+arm-none-eabi-size  exercise_1_firmware.elf 
+arm-none-eabi-objdump -h -S exercise_1_firmware.elf  > "exercise_1_firmware.list"
+arm-none-eabi-objcopy  -O ihex exercise_1_firmware.elf  "exercise_1_firmware.hex"
+   text	   data	    bss	    dec	    hex	filename
+   7152	     20	   1572	   8744	   2228	exercise_1_firmware.elf
+arm-none-eabi-objcopy  -O binary exercise_1_firmware.elf  "exercise_1_firmware.bin"
+Finished building: default.size.stdout
+ 
+Finished building: exercise_1_firmware.bin
+Finished building: exercise_1_firmware.list
+Finished building: exercise_1_firmware.hex
+ 
+ 
+ 

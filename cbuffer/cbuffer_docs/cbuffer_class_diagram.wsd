@@ -1,0 +1,57 @@
+@startuml
+
+class cbuffer {
+  uint8_t *data
+  uint32_t size
+  uint32_t overflow
+  bool active
+  uint32_t writer
+  uint32_t reader
+  --
+  +void cb_init(cbuffer_t *cb, void *buf, uint32_t size)
+  +void cb_clear(cbuffer_t *cb)
+  +uint32_t cb_read(cbuffer_t *cb, void *buf, uint32_t nbytes)
+  +uint32_t cb_write(cbuffer_t *cb, void *buf, uint32_t nbytes)
+  +uint32_t cb_data_count(cbuffer_t *cb)
+  +uint32_t cb_space_count(cbuffer_t *cb)
+}
+
+note left of cbuffer::*data
+  Pointer of the buffer
+end note
+note left of cbuffer::size
+  Size of the buffer
+end note
+note left of cbuffer::overflow
+  The overflow data
+end note
+note left of cbuffer::active
+  The buffer status flag
+end note
+note left of cbuffer::writer
+  Position of next data
+end note
+note left of cbuffer::reader
+  Position of oldest data
+end note
+
+note left of cbuffer::"cb_init(cbuffer_t *cb, void *buf, uint32_t size)"
+  Initialize the circular buffer
+end note
+note left of cbuffer::"cb_clear(cbuffer_t *cb)"
+  Clear all data in buffer
+end note
+note left of cbuffer::"cb_read(cbuffer_t *cb, void *buf, uint32_t nbytes)"
+  Read n byte(s) data from buffer
+end note
+note left of cbuffer::"cb_write(cbuffer_t *cb, void *buf, uint32_t nbytes)"
+  Write n byte(s) data to the buffer
+end note
+note left of cbuffer::"cb_data_count(cbuffer_t *cb)"
+  Count the avalable data in buffer
+end note
+note left of cbuffer::"cb_space_count(cbuffer_t *cb)"
+  Count the remaining space in buffer
+end note
+
+@enduml

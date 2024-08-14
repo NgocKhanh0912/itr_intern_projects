@@ -1,0 +1,106 @@
+@startuml rtc_exercise_sequence_diagram
+
+actor PC #Black
+
+box "Hardware" #LightPink
+participant USB_to_UART
+participant RTC_DS1307
+end box
+
+box "HAL " #Orchid
+participant HAL_UART
+participant HAL_I2C
+end box
+
+box "BSP" #MediumPurple
+participant bsp_callback
+participant bsp_uart
+participant bsp_i2c
+end box
+
+box "Device Drivers" #SkyBlue
+participant drv_serial
+participant drv_ds1307
+end box
+
+box "Middleware" #LightPink
+participant common_macro
+participant cbuffer
+end box
+
+box "System Services" #LightGreen
+participant sys_protocol
+participant sys_manage
+participant sys_time
+end box
+
+box "Applicaion" #IndianRed
+participant app_main
+end box
+
+'Application
+app_main -> sys_protocol : initialize the\nsystem UART\ncommunication
+app_main -> sys_time : initialize the\nsystem time and I2C
+app_main -> sys_manage : initialize the\nsystem manage
+app_main -> sys_manage : manage FSM
+
+'System Services
+sys_protocol -> drv_serial : start the UART
+sys_protocol -> drv_serial : transmit the data packet
+sys_protocol -> drv_serial : regist rx data packet\nevent callback
+sys_protocol -> sys_protocol : handle the received data packet
+sys_protocol -> sys_manage : handled data packet
+sys_protocol -> cbuffer : regist cbuffer
+sys_protocol <-> common_macro : ASSERT and CALLBACK
+
+sys_time -> drv_ds1307 : init RTC DS1307
+sys_time -> drv_ds1307 : set time (epoch/date) to RTC
+sys_time -> sys_time : check alarm event
+sys_time -> sys_manage : get time data and alarm event
+sys_time <-> common_macro : ASSERT and CALLBACK
+
+sys_manage -> sys_manage : manage FSM
+sys_manage -> sys_time : set time data and set alarm time
+sys_manage -> sys_time : regist alarm event callback
+sys_manage -> sys_protocol : handled data packet
+sys_manage <-> common_macro : ASSERT and CALLBACK
+
+'Device Drivers
+drv_serial -> sys_protocol : receive the data packet
+drv_serial -> bsp_uart : transmit data
+drv_serial -> bsp_uart : intitialize
+drv_serial -> bsp_uart : regist rx event callback
+
+drv_ds1307 -> sys_time : get date time from RTC
+drv_ds1307 -> bsp_i2c : write date time
+drv_ds1307 -> bsp_i2c : intitialize
+
+'BSP
+bsp_callback -> drv_serial: interrupt service routine
+
+bsp_uart -> drv_serial : receive data
+bsp_uart -> HAL_UART : transmit data
+bsp_uart -> HAL_UART : enable/disable UART interrupt
+bsp_uart -> HAL_UART : regist rx event callback
+
+bsp_i2c -> drv_ds1307 : read date time
+bsp_i2c -> HAL_I2C : write date time
+
+'HAL
+HAL_UART -> bsp_callback : interrupt event callback
+HAL_UART -> bsp_uart : receive data
+
+HAL_I2C -> bsp_i2c : read date time
+
+'Hardware
+USB_to_UART <- HAL_UART : initialize
+USB_to_UART <-> HAL_UART : data receive and transmit
+USB_to_UART -> HAL_UART : interrupt flag
+
+RTC_DS1307 <- HAL_I2C : initialize
+RTC_DS1307 <-> HAL_I2C : set/get time
+
+'User
+PC <-> USB_to_UART : data packet
+
+@enduml
