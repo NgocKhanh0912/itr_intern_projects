@@ -1,0 +1,25 @@
+@startuml example
+
+actor User #Black
+
+box "Application" #LightPink
+participant main
+end box
+
+User -> main : "CMD0"
+main -> User : "CMD0"
+
+User -> main : "CMD9"
+main -> User : "CMD9"
+
+User -> main : "CM"
+User -> main : "D8"
+main -> User : "CMD8"
+
+User -> main : "ABCCMD7"
+main -> User : "CMD7"
+
+User -> main : "CCMD5ACMD6"
+main -> User : "CMD5CMD6
+
+@enduml

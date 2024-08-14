@@ -1,0 +1,31 @@
+@startuml system_manage_fsm
+
+hide empty description
+
+[*] -down-> SYS_STATE_IDLE
+
+state SYS_STATE_IDLE
+state SYS_STATE_NOT_RECEIVED_A_FULL_COMMAND
+state SYS_STATE_RECEIVED_A_FULL_COMMAND : write a full command\nfrom rx_buffer to tx_buffer\nand transmit tx_buffer
+state SYS_STATE_RECEIVED_WRONG_DATA : remove wrong data from rx_buffer
+
+SYS_STATE_IDLE -down-> SYS_STATE_NOT_RECEIVED_A_FULL_COMMAND : rx_buffer received data but data\nis not a full command
+SYS_STATE_IDLE -down-> SYS_STATE_IDLE : rx_buffer\nis empty
+SYS_STATE_IDLE -down-> SYS_STATE_RECEIVED_A_FULL_COMMAND :  rx_buffer received\na full command
+SYS_STATE_IDLE -down-> SYS_STATE_RECEIVED_WRONG_DATA : rx_buffer have\nwrong data
+
+SYS_STATE_NOT_RECEIVED_A_FULL_COMMAND -down-> SYS_STATE_NOT_RECEIVED_A_FULL_COMMAND : rx_buffer did not receive\na full command
+SYS_STATE_NOT_RECEIVED_A_FULL_COMMAND -down-> SYS_STATE_RECEIVED_A_FULL_COMMAND : rx_buffer received the missing data and\nit becomes a full command
+SYS_STATE_NOT_RECEIVED_A_FULL_COMMAND -down-> SYS_STATE_RECEIVED_WRONG_DATA : rx_buffer have\nwrong data
+
+SYS_STATE_RECEIVED_A_FULL_COMMAND -up-> SYS_STATE_IDLE : rx_buffer\nis empty
+SYS_STATE_RECEIVED_A_FULL_COMMAND -down-> SYS_STATE_NOT_RECEIVED_A_FULL_COMMAND : rx_buffer have data, but\nthat data is not a full command
+SYS_STATE_RECEIVED_A_FULL_COMMAND -down-> SYS_STATE_RECEIVED_A_FULL_COMMAND : rx_buffer have\na full command
+SYS_STATE_RECEIVED_A_FULL_COMMAND -down-> SYS_STATE_RECEIVED_WRONG_DATA : rx_buffer have\nwrong data
+
+SYS_STATE_RECEIVED_WRONG_DATA -up-> SYS_STATE_IDLE : rx_buffer\nis empty 
+SYS_STATE_RECEIVED_WRONG_DATA -down-> SYS_STATE_NOT_RECEIVED_A_FULL_COMMAND : rx_buffer have data, but\nthat data is not a full command
+SYS_STATE_RECEIVED_WRONG_DATA -down-> SYS_STATE_RECEIVED_A_FULL_COMMAND : rx_buffer have\na full command
+SYS_STATE_RECEIVED_WRONG_DATA -down-> SYS_STATE_RECEIVED_WRONG_DATA : rx_buffer still have\nwrong data
+
+@enduml

@@ -1,0 +1,7 @@
+{
+  "files.associations": {
+    "*.m": "matlab",
+    "bsp_uart.h": "c",
+    "common.h": "c"
+  }
+}
