@@ -1,0 +1,55 @@
+@startuml
+
+hide empty description
+
+state init
+init -> idle
+
+state idle
+idle -down-> detectPosEdge : 1
+
+state detectPosEdge
+detectPosEdge -right-> detectSingleClick : t > 30ms
+detectPosEdge -up-> idle : t <= 30ms
+
+state detectSingleClick
+detectSingleClick -up-> endOfSingleClick : 0, t < 500ms
+detectSingleClick -down-> detectHold : t >= 500ms
+
+state endOfSingleClick
+endOfSingleClick -up-> singleClick : t >= 300ms
+endOfSingleClick -up-> detectPreDoubleClick : 1, t < 300ms
+
+state detectPreDoubleClick
+detectPreDoubleClick -right-> detectDoubleClick : t > 30ms
+detectPreDoubleClick -left-> singleClick :0, t <= 30ms
+
+state detectDoubleClick
+detectDoubleClick -up-> doubleClick : 0, t < 500ms
+detectDoubleClick -up-> sysErr : t >= 500ms
+
+state detectHold
+detectHold -right-> sysErr : t <= 3s
+detectHold -down-> Hold : t > 3s
+
+state Hold : button hold handler
+Hold -left-> detectRelease : 0
+
+state detectRelease
+detectRelease -right-> Hold : t <= 300ms
+detectRelease -left-> Release : t > 300ms
+
+state Release : buton release handler
+Release --> idle
+
+state singleClick : button single click handler
+singleClick -down-> idle
+
+state doubleClick : button double click handler
+doubleClick -left-> idle
+
+state sysErr: button error handler
+sysErr -left-> idle
+
+
+@enduml
