@@ -1,0 +1,26 @@
+@startuml FSM-10110-Moore
+
+title "Detect 10110 Moore Finite State Machine"
+skinparam dpi 90
+
+[*] --> IDLE
+IDLE --> STATE_1: Input = 1
+IDLE --> IDLE: Input = 0
+STATE_1 --> STATE_2: Input = 0
+STATE_1 --> STATE_1: Input = 1
+STATE_2 --> IDLE: Input = 0
+STATE_2 --> STATE_3: Input = 1
+STATE_3 --> STATE_2: Input = 0
+STATE_3 --> STATE_4: Input = 1
+STATE_4 --> STATE_5: Input = 0
+STATE_4 --> STATE_1: Input = 1
+STATE_5 --> IDLE: Input = 0
+STATE_5 --> STATE_1: Input = 1
+
+IDLE : Not detected, Output = 0
+STATE_1 : Not detected, Output = 0
+STATE_2 : Not detected, Output = 0
+STATE_3 : Not detected, Output = 0
+STATE_4 : Not detected, Output = 0
+STATE_5 : Detected, Output = 1
+@enduml
