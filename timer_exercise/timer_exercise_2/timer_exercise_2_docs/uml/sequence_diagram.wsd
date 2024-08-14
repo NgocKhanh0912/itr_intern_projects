@@ -1,0 +1,68 @@
+@startuml
+
+actor User #Black
+
+box "Hardware" #LightPink
+participant Button
+participant LEDs
+end box
+
+box "HAL " #Orchid
+participant HAL_GPIO
+participant HAL_Timer
+end box
+
+box "BSP" #MediumPurple
+participant bsp_gpio
+participant bsp_timer
+end box
+
+box "Device Drivers" #SkyBlue
+participant drv_button
+participant drv_led
+end box
+
+box "System Services" #LightGreen
+participant sys_button
+participant sys_led
+participant sys_manager
+end box
+
+'System Services
+sys_manager <- sys_button : button event
+sys_manager <- sys_led : period elapsed event
+sys_manager -> sys_led : LED effect
+
+'Device Drivers
+drv_button <- sys_button : initialize button
+drv_button --> drv_button : button handler
+drv_button <- sys_button : register callback
+drv_button -> sys_button : button event callback
+drv_led <- sys_led : initialize timer
+drv_led <- sys_led : select PWM channel
+drv_led <- sys_led : register callback
+drv_led -> sys_led : timer event callback
+
+'BSP
+bsp_gpio <- drv_button : initialize button GPIO
+bsp_gpio -> drv_button : get button state
+bsp_timer -> drv_button : get SysTick
+bsp_timer <- drv_led : initialize timer, enable/disable interrupt
+bsp_timer <- drv_led : set frequency, duty cycle
+bsp_timer <- drv_led : enable/disable PWM channel
+
+'HAL
+HAL_GPIO <- bsp_gpio : intialize pin, port, state
+HAL_GPIO <- bsp_gpio : get pin state
+HAL_Timer <- bsp_timer : initialize timer 
+HAL_Timer <- bsp_timer : set clock source, prescaler
+
+'Hardware
+Button -> HAL_GPIO : logic level
+LEDs <- HAL_Timer : PWM
+
+'User
+User -> Button : interract
+User <- LEDs : blink
+
+@enduml

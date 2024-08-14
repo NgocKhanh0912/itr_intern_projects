@@ -1,0 +1,29 @@
+@startuml
+
+hide empty description
+
+[*] -down-> IDLE
+
+state IDLE : off LEDs
+IDLE -left-> RED_BLINK : button_evt = SINGLE_CLICK
+
+state RED_BLINK : blink red LED\n with 2s period
+RED_BLINK -left-> RED_WAIT_TRANSIT : button_evt = DOUBLE_CLICK
+RED_BLINK -up-> RED_WAIT_OFF : (button_evt = HOLD)
+RED_WAIT_OFF -up-> IDLE : (period_elapsed)
+RED_WAIT_TRANSIT -up-> GREEN_BLINK : (period_elapsed)
+
+
+state GREEN_BLINK : blink green LED\n with 2s period
+GREEN_BLINK -down-> GREEN_WAIT_TRANSIT: button_evt = DOUBLE_CLICK
+GREEN_BLINK -right-> GREEN_WAIT_OFF : button_evt = HOLD
+GREEN_WAIT_OFF -right-> IDLE: (period_elapsed)
+GREEN_WAIT_TRANSIT -down-> BLUE_BLINK : button_evt = DOUBLE_CLICK
+
+state BLUE_BLINK : blink blue LED\n with 2s period
+BLUE_BLINK -down-> BLUE_WAIT_TRANSIT : button_evt = DOUBLE_CLICK
+BLUE_BLINK -up-> BLUE_WAIT_OFF : button_evt = HOLD
+BLUE_WAIT_OFF -up-> IDLE : (period_elapsed)
+BLUE_WAIT_TRANSIT -down-> RED_BLINK : (period_elapsed)
+
+@enduml

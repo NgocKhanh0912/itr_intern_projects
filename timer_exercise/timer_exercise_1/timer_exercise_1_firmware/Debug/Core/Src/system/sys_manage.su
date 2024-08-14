@@ -1,0 +1,2 @@
+../Core/Src/system/sys_manage.c:29:14:sys_init	24	static
+../Core/Src/system/sys_manage.c:41:14:sys_manage_fsm	24	static

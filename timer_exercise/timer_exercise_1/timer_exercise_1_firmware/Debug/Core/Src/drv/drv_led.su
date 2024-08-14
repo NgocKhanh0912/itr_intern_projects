@@ -1,0 +1,4 @@
+../Core/Src/drv/drv_led.c:36:18:drv_led_init	16	static
+../Core/Src/drv/drv_led.c:51:18:drv_led_set_on	16	static
+../Core/Src/drv/drv_led.c:64:18:drv_led_set_off	16	static
+../Core/Src/drv/drv_led.c:77:18:drv_led_toggle	16	static

@@ -1,0 +1,67 @@
+@startuml sequence_diagram
+
+actor User #Black
+
+box "Hardware" #LightPink
+participant Button
+participant LEDs
+end box
+
+box "HAL " #Orchid
+participant HAL_GPIO
+participant HAL_Timer
+end box
+
+box "BSP" #MediumPurple
+participant bsp_gpio
+participant bsp_timer
+end box
+
+box "Device Drivers" #SkyBlue
+participant drv_button
+participant drv_led
+end box
+
+box "System Services" #LightGreen
+participant sys_button
+participant sys_led
+participant sys_manage
+end box
+
+box "Application" #LightPink
+participant main
+end box
+
+main -> sys_manage : timer interrupt flag
+main -> sys_manage : user define LEDs, button and timer
+
+sys_manage -> sys_led : LEDs effect
+sys_manage <- sys_button : button events
+sys_manage -> sys_manage : system fsm handler
+sys_manage -> bsp_timer : initialize timer
+sys_button -> sys_button : button fsm handler
+
+drv_button <- sys_button : initialize button
+drv_led <- sys_led : initialize LEDs
+drv_led <- sys_led : set LEDs state
+
+bsp_gpio <- drv_button : initialize button GPIO
+bsp_gpio -> drv_button : get button pin state
+bsp_gpio <- drv_led : initialize LED GPIO
+bsp_gpio <- drv_led : set LED state
+bsp_timer -> drv_button : get SysTick
+
+HAL_GPIO <- bsp_gpio : initialize GPIO
+HAL_GPIO -> bsp_gpio : button pin state
+HAL_GPIO <- bsp_gpio : set LEDs state
+HAL_Timer <- bsp_timer : initialize timer
+HAL_GPIO -> Button : initialize button
+HAL_GPIO -> LEDs : initialize LEDs
+
+Button -> HAL_GPIO: button pin state
+LEDs <- HAL_GPIO : set LEDs state
+
+User -> Button : interract
+User <- LEDs : display
+
+@enduml

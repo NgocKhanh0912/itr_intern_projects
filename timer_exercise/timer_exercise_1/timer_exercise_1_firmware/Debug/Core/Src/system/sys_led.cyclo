@@ -1,0 +1,5 @@
+../Core/Src/system/sys_led.c:28:18:sys_led_init	1
+../Core/Src/system/sys_led.c:36:18:sys_led_effect_for_sys_state_0	1
+../Core/Src/system/sys_led.c:44:18:sys_led_effect_for_sys_state_1	1
+../Core/Src/system/sys_led.c:52:18:sys_led_effect_for_sys_state_2	1
+../Core/Src/system/sys_led.c:60:18:sys_led_effect_for_sys_state_3	1
